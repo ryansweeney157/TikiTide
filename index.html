@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <body>
+        <h1>Signup</h1>
+    
+        Email: <input type="text"  id="email"> <br>
+        Password: <input type="password" id="pass"> <br><br>
+    
+        <button onclick="signup()">Sign Up</button><br><br>
+        <div>
+            <a href="login.html"><button>Sign in</button></a>
+        </div>
     <header>
         <h1>Welcome to The Tiki Tide</h1>
     </header>
@@ -74,6 +84,89 @@
             <div class="menu-item">
                 <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG4.dZb4vQe8l5vH9lbS4Zl8&pid=ImgGn">
                 <h4>Pineapple pizza - $14.99</h4>
-                <p> Ham and delicious marinated pineapple on fresh made dough and sauce, with fresh mozzarella. 16 inch pizza. <em>2500 calories</em> </p>
-                <button class="menu-btn" onclick="addToCart('Pineapple pizza', 14.99)">Add to Cart</button>
+                <p> Ham and delicious marinated pineapple on fresh made dough and sauce, with fresh mozzarella. 16 inch pizza. 2500 calories </p>
+                <button onclick="addToCart('Pineapple pizza', 14.99)">Add to Cart</button>
             </div>
+           
+            <h3>Desserts</h3>
+            
+            <div class="menu-item">
+                <h4>Pineapple Paradise Parfait - $5.99</h4>
+                <p>Description: Vanilla yogurt, pineapple, strawberries, and granola. 300 calories</p>
+                <button onclick="addToCart('Pineapple Paradise Parfait', 5.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Coconut Cream Crunch - $4.99</h4>
+                <p>Description: A slice of creamy, crunchy coconut cream pie. 400 calories</p>
+                <button onclick="addToCart('Coconut Cream Crunch', 4.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Mango Magic Mousse - $4.99</h4>
+                <p>Description: Creamy mango mousse with tropical flavors. 450 calories</p>
+                <button onclick="addToCart('Mango Magic Mousse', 4.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Banana Breeze Bites - $3.99</h4>
+                <button onclick="addToCart('Banana Breeze Bites', 3.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Tropical Tiki Tiramisu - $6.99</h4>
+                <p>Description: Tiramisu with a coconut and pineapple twist. 500 calories</p>
+                <button onclick="addToCart('Tropical Tiki Tiramisu', 6.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Papaya Passion Pudding - $3.99</h4>
+                <p>Description: Papaya-flavored pudding. 350 calories</p>
+                <button onclick="addToCart('Papaya Passion Pudding', 3.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Key Lime Kissed Cake - $6.69</h4>
+                <p>Description: Sweet and tangy key lime cake. 500 calories</p>
+                <button onclick="addToCart('Key Lime Kissed Cake', 6.69)">Add to Cart</button>
+            </div>
+
+            
+            <h3>Drinks</h3>
+
+            <div class="menu-item">
+                <h4>Berry Blast Smoothie - $4.99</h4>
+                <button onclick="addToCart('Berry Blast Smoothie', 4.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Water - $1.00</h4>
+                <button onclick="addToCart('Water', 1.00)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Soda & Juice</h4>
+                <p>Small - $1.99</p>
+                <button onclick="addToCart('Small Soda/Juice', 1.99)">Add to Cart</button>
+                <p>Medium - $2.99</p>
+                <button onclick="addToCart('Medium Soda/Juice', 2.99)">Add to Cart</button>
+                <p>Large - $3.99</p>
+                <button onclick="addToCart('Large Soda/Juice', 3.99)">Add to Cart</button>
+            </div>
+        </section>
+
+       
+        <section id="cart">
+          
+            <h2>Your Cart</h2>
+
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total">0.00</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </section>
+    </main>
+
+    <script src="java.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tiki Tide</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <body>
 
+    <div class="header">
+
     <header>
-        <h1>Welcome to The Tiki Tide</h1>
+        <h1 style="font-family: 'tribeca'; ">Welcome to The Tiki Tide</h1>
     </header>
 
+    </div>
     <main>
-        
-        <section id="menu">
-            <h2>Our Tropical Menu</h2>
+
+        <h2>Our Tropical Menu</h2>
 
             <h3>Main Dishes</h3>
+        
+        <section id="menu">
             <div class="menu-item">
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG2.j9FT4TOJSemT4jVpLagq&pid=ImgGn">
                 <h4>Volcanic Veggie Burger - $14.99</h4>
@@ -35,7 +40,7 @@
                 <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG3.L.Q_F0lfuugnU4uuh6qe&pid=ImgGn">
                 <h4>Tangy Tuna Tacos - $16.99</h4>
                 <p>Description: Raw tuna marinated in house marinade, with cabbage, lime, and spicy mayo on a corn tortilla. <em>800 calories</em></p>
-                <button class="menu-tbn" onclick="addToCart('Tangy Tuna Tacos', 16.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Tangy Tuna Tacos', 16.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.VDKVqLovdhm0jS3T9ChE&pid=ImgGn">
@@ -77,7 +82,7 @@
                 <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG4.dZb4vQe8l5vH9lbS4Zl8&pid=ImgGn">
                 <h4>Pineapple pizza - $14.99</h4>
                 <p> Ham and delicious marinated pineapple on fresh made dough and sauce, with fresh mozzarella. 16 inch pizza. 2500 calories </p>
-                <button onclick="addToCart('Pineapple pizza', 14.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Pineapple pizza', 14.99)">Add to Cart</button>
             </div>
            
             <h3>Desserts</h3>
@@ -86,67 +91,74 @@
                 <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn">
                 <h4>Pineapple Paradise Parfait - $5.99</h4>
                 <p>Description: Vanilla yogurt, pineapple, strawberries, and granola. 300 calories</p>
-                <button onclick="addToCart('Pineapple Paradise Parfait', 5.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG4.B7_QdNBBr689.MI0NVHG&pid=ImgGn">
                 <h4>Coconut Cream Crunch - $4.99</h4>
                 <p>Description: A slice of creamy, crunchy coconut cream pie. 400 calories</p>
-                <button onclick="addToCart('Coconut Cream Crunch', 4.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Coconut Cream Crunch', 4.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse2.mm.bing.net/th?id=OIG1.7Il.C6IJn1wsFG2dSLrR&pid=ImgGn">
                 <h4>Mango Magic Mousse - $4.99</h4>
                 <p>Description: Creamy mango mousse with tropical flavors. 450 calories</p>
-                <button onclick="addToCart('Mango Magic Mousse', 4.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Mango Magic Mousse', 4.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.8iW_J1Jabucls4g2SfTW&pid=ImgGn">
                 <h4>Banana Breeze Bites - $3.99</h4>
                 <p>Description: Delicious, frozen, sweet, dark chocolate covered banana bites. </p>
-                <button onclick="addToCart('Banana Breeze Bites', 3.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Banana Breeze Bites', 3.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG2.9fOh4.ycvC8Oovts4ObY&pid=ImgGn">
                 <h4>Tropical Tiki Tiramisu - $6.99</h4>
                 <p>Description: Tiramisu with a coconut and pineapple twist. 500 calories</p>
-                <button onclick="addToCart('Tropical Tiki Tiramisu', 6.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Tropical Tiki Tiramisu', 6.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG3.lnbyeKsJyuRc65A4GBcF&pid=ImgGn">
                 <h4>Papaya Passion Pudding - $3.99</h4>
                 <p>Description: Papaya-flavored pudding. 350 calories</p>
-                <button onclick="addToCart('Papaya Passion Pudding', 3.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Papaya Passion Pudding', 3.99)">Add to Cart</button>
             </div>
             <div class="menu-item">
                 <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG1.Dc7cGVAJSzagoLEA91WD&pid=ImgGn">
                 <h4>Key Lime Kissed Cake - $6.69</h4>
                 <p>Description: Sweet and tangy key lime cake. 500 calories</p>
-                <button onclick="addToCart('Key Lime Kissed Cake', 6.69)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Key Lime Kissed Cake', 6.69)">Add to Cart</button>
             </div>
 
             
-            <h3>Drinks</h3>
+
+            <div class="menu-item">
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.GYp._sCsDz5aD8jXf92p&pid=ImgGn">
+                <h4>Mango Madness Smoothie - $4.99</h4>
+                <button class="menu-btn" onclick="addToCart('Berry Blast Smoothie', 4.99)">Add to Cart</button>
+            </div>
 
             <div class="menu-item">
                 <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG3.xlN1FdWbtKH.9U6b72aO&pid=ImgGn">
                 <h4>Berry Blast Smoothie - $4.99</h4>
-                <button onclick="addToCart('Berry Blast Smoothie', 4.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Berry Blast Smoothie', 4.99)">Add to Cart</button>
             </div>
+
             <div class="menu-item">
                 <img class="menu-img" src="https://tse2.mm.bing.net/th?id=OIG3.rPwQMaD87INNKrW8PqYm&pid=ImgGn">
                 <h4>Water - $1.00</h4>
-                <button onclick="addToCart('Water', 1.00)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Water', 1.00)">Add to Cart</button>
             </div>
+
             <div class="menu-item">
                 <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn">
                 <h4>Soda & Juice</h4>
                 <p>Small - $1.99</p>
-                <button onclick="addToCart('Small Soda/Juice', 1.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Small Soda/Juice', 1.99)">Add to Cart</button>
                 <p>Medium - $2.99</p>
-                <button onclick="addToCart('Medium Soda/Juice', 2.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Medium Soda/Juice', 2.99)">Add to Cart</button>
                 <p>Large - $3.99</p>
-                <button onclick="addToCart('Large Soda/Juice', 3.99)">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Large Soda/Juice', 3.99)">Add to Cart</button>
             </div>
         </section>
 
@@ -157,7 +169,7 @@
 
             <ul id="cart-items"></ul>
             <p>Total: $<span id="total">0.00</span></p>
-            <button onclick="checkout()">Checkout</button>
+            <button class="menu-btn" onclick="checkout()">Checkout</button>
         </section>
     </main>
 

@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-btn {
+    cursor: pointer;
+}
+
+.menu-item {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#menu {
+    margin-left: 25px;
+}
+
+h1 {
+    margin-left: 25px; 
+}
+
+.menu-img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}

@@ -26,3 +26,15 @@ h1 {
     height: auto;
     border-radius: 10px;
 }
+
+#cart {
+    margin-left: 25px;
+}
+
+.menu-item h4, .menu-item p, .menu-item button {
+    margin-top: 8px;
+}
+
+body {
+    background-color: #fff9ec;
+}

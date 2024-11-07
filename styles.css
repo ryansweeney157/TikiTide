@@ -70,10 +70,51 @@ h4 {
 }
 
 
-.soda-grid {
-    display: flex;
-    flex-direction: row; 
+.soda-grid div{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
 
+.soda-grid .menu-btn {
+    margin-bottom: 5px;
+}
+
+.soda-grid p {
+    margin-top: 10px;
+}
+
+.cart-item-img {
+    width: 80px;
+    border-radius: 15px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+
+#cart li {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    background-color: #fcd5ad;
+    max-width: 550px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+#cart-items li .remove-button {
+    margin-left: auto;
+    cursor: pointer;
+    margin-right: 25px;
 }
 
 .menu-img {
@@ -112,4 +153,14 @@ body {
 .menu-btn:hover {
     background-color: #cae5ff;
     transition: 0.3s;
+}
+
+.remove-button {
+    background-color: #91bce7;
+    color: #fff9ec;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    
 }

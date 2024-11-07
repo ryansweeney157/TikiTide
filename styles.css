@@ -13,20 +13,22 @@
     background-image: url('')
 }
 
-.header {
-    background-image: url('images/headerImage.jpg');
-    width: 100%;
-    height: auto;
-    z-index: 0;
-    padding-bottom: 500px;
+body h4, body p, main h1, main h2 {
+font-family: 'tienne';
+
 }
 
 .header h1 {
-    z-index: 1000;
-    top: 50px;
-    text-align: center;
+   text-align: center;
+   margin-top: 100px;
+   margin-bottom: 150px;
+   font-size: 2.5em;
 }
 
+main h1 {
+    font-size: 2.5em;
+    text-align: Center;
+}
 .menu-btn {
     cursor: pointer;
 }

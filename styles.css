@@ -25,22 +25,39 @@
 }
 
 .menu-item {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     background-color: #fcd5ad;
     width: 90%;
     border-radius: 15px;
     padding: 15px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: row;
+
 }
 
-#menu {
-    margin-left: 25px;
+.menu-head {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2em;
+}
+.menu-item h1 {
+    display: block;
+    text-align: center;
 }
 
-h1 {
-    margin-left: 25px; 
+h4 {
+    font-size: 1.3em;
+}
+
+
+.soda-grid {
+    display: flex;
+    flex-direction: row; 
+
 }
 
 .menu-img {
@@ -56,6 +73,10 @@ h1 {
 .menu-item h4, .menu-item p, .menu-item button, .menu-item img {
     margin-top: 8px;
     margin-left: 10px;
+}
+
+.soda-grid button {
+    margin-left: 0px;
 }
 
 body {

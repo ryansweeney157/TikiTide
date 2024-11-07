@@ -4,18 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Receipt</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <main>
         <section id="receipt">
             <h2>Order Confirmation</h2>
             <p>Thank you for your purchase!</p>
+            <h3>Your Order:</h3>
+            <ul id="order-summary"></ul>
+            <p>Total: $<span id="total-amount">0.00</span></p>
             <p>Your food is estimated to arrive in <span id="countdown">15:00</span> minutes.</p>
         </section>
     </main>
 
     <script>
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        function displayOrderSummary() {
+            const orderSummaryElement = document.getElementById("order-summary");
+            const totalAmountElement = document.getElementById("total-amount");
+            let total = 0;
+
+            cart.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                orderSummaryElement.appendChild(listItem);
+                total += item.price;
+            });
+
+            totalAmountElement.textContent = total.toFixed(2);
+        }
+
         let countdownTime = 15 * 60; 
 
         function startCountdown() {
@@ -27,17 +47,19 @@
 
                 countdownElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-               
                 if (countdownTime <= 0) {
                     clearInterval(interval);
                     countdownElement.textContent = "Your order has arrived!";
                 }
 
                 countdownTime--;
-            }, 1000); 
+            }, 1000);
         }
 
-        window.onload = startCountdown;
+        window.onload = function() {
+            displayOrderSummary();
+            startCountdown();
+        };
     </script>
 </body>
 </html>

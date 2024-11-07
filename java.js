@@ -60,3 +60,10 @@ function checkout() {
 
     window.location.href = "checkout.html";
 }
+   function submitCheckout(event) {
+    event.preventDefault();
+
+    alert("Thank you for your purchase!");
+
+    window.location.href = "checkout.html";
+}

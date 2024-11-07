@@ -28,11 +28,19 @@ function login(){
 }
 let cart = []; 
 
-function addToCart(itemName, itemPrice) {
-    const item = { name: itemName, price: itemPrice };
+function addToCart(itemName, itemPrice, itemImage) {
+    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage);
+    const item = { name: itemName, price: itemPrice, image: itemImage };
     cart.push(item);
     updateCartDisplay();
 }
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+}
+
+
 
 
 function updateCartDisplay() {
@@ -42,11 +50,37 @@ function updateCartDisplay() {
     cartItemsList.innerHTML = ""; 
     let total = 0;
 
-    cart.forEach((item) => {
+    cart.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+        const img = document.createElement("img");
+        img.src = item.image || "";
+        img.alt = item.name;
+        img.classList.add("cart-item-img")
+
+        const itemName = document.createElement("span")
+        itemName.textContent = item.name;
+        itemName.classList.add("cart-item-name")
+
+        const itemPrice = document.createElement("span");
+        itemPrice.textContent= ` - $${item.price.toFixed(2)}`;
+        itemPrice.classList.add("cart-item-price");
+
+        const removeButton = document.createElement("button")
+        removeButton.textContent = "Remove";
+        removeButton.classList.add("remove-button");
+        removeButton.onclick = () => removeFromCart(index);
+
+        listItem.appendChild(img);
+        listItem.appendChild(itemName);
+        listItem.appendChild(itemPrice);
+        listItem.appendChild(removeButton);
         cartItemsList.appendChild(listItem);
         total += item.price;
+
+        
+
+
     });
 
     totalDisplay.textContent = total.toFixed(2); 

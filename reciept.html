@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Receipt</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <main>
@@ -16,13 +20,14 @@
             <p>Total: $<span id="total-amount">0.00</span></p>
             <p>Your food is estimated to arrive in <span id="countdown">15:00</span> minutes.</p>
         </section>
+        <h3>Wanna voice your opinion? Click <a href="review.html">here!</a></h3>
     </main>
 
     <script>
       
 
         function displayOrderSummary() { 
-            
+
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
             
         const orderSummaryElement = document.getElementById("order-summary"); 

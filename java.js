@@ -92,7 +92,7 @@ function checkout() {
         return;
     }
 
-    window.location.href = "checkout.html";
+
 }
    function submitCheckout(event) {
     event.preventDefault();

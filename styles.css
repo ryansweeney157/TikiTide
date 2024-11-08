@@ -235,14 +235,15 @@ h3 {
 
 #order-summary {
     list-style: none;
-    margin: 10px 0;
     padding: 0;
-    text-align: left;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #order-summary li {
     font-size: 1em;
     line-height: 1.5;
+    margin: 0 auto;
 }
 
 #total-amount {
@@ -257,4 +258,90 @@ h3 {
     margin-top: 20px;
 }
 
+form {
+    color: #dadada;
+}
 
+#review textarea {
+    width: 90%;
+    height: 20vh;
+    
+}
+
+#rating-btn {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: #ff9c1a;
+    width: 80px;
+}
+
+/* navigation */
+
+
+.logo  {
+    margin-left: 5vw;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    gap: 5vw;
+    flex-direction: row;
+    list-style-type: none;
+    
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #999;
+}
+
+.navigation a.active {
+    color: white; 
+
+}
+
+.navbar {
+    margin-top: 10px;
+    margin-right: 5vw;
+    font-size: 1.2em;
+}
+
+#closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+#homeLink {
+    color: #F69314;
+}
+
+.full-nav {
+    background-color: #fcd5ad;
+    top: 0;
+    padding: 20px;
+
+}
+
+.headernav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.hamburger{
+     display: none;
+}

@@ -85,15 +85,19 @@ function updateCartDisplay() {
 
     totalDisplay.textContent = total.toFixed(2); 
 }
-
 function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
 
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    localStorage.setItem("totalAmount", total.toFixed(2));
+    localStorage.setItem("cart", JSON.stringify(cart))
+
     window.location.href = "checkout.html";
 }
+
    function submitCheckout(event) {
     event.preventDefault();
 
@@ -101,3 +105,4 @@ function checkout() {
 
     window.location.href = "checkout.html";
 }
+

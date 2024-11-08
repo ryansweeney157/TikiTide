@@ -204,3 +204,57 @@ body {
 .stars i.active {
     color: #ff9c1a;
 }
+
+#receipt {
+    width: 350px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px  #333;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#order-summary {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+    text-align: left;
+}
+
+#order-summary li {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+#total-amount {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#countdown {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+

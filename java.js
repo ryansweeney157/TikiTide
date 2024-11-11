@@ -66,7 +66,7 @@ function updateCartDisplay() {
         const itemPrice = document.createElement("span");
         itemPrice.textContent=  - $${item.price.toFixed(2)};
         itemPrice.classList.add("cart-item-price");
-
+        
 const removeButton = document.createElement("button")
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-button");

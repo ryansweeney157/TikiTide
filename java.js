@@ -26,6 +26,7 @@ function login(){
 
 
 }
+
 let cart = []; 
 
 function addToCart(itemName, itemPrice, itemImage) {
@@ -63,10 +64,10 @@ function updateCartDisplay() {
         itemName.classList.add("cart-item-name")
 
         const itemPrice = document.createElement("span");
-        itemPrice.textContent= ` - $${item.price.toFixed(2)}`;
+        itemPrice.textContent=  - $${item.price.toFixed(2)};
         itemPrice.classList.add("cart-item-price");
 
-        const removeButton = document.createElement("button")
+const removeButton = document.createElement("button")
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-button");
         removeButton.onclick = () => removeFromCart(index);
@@ -78,22 +79,25 @@ function updateCartDisplay() {
         cartItemsList.appendChild(listItem);
         total += item.price;
 
-        
+
 
 
     });
-
-    totalDisplay.textContent = total.toFixed(2); 
+totalDisplay.textContent = total.toFixed(2); 
 }
-
 function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
 
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    localStorage.setItem("totalAmount", total.toFixed(2));
+    localStorage.setItem("cart", JSON.stringify(cart))
 
+    window.location.href = "checkout.html";
 }
+
    function submitCheckout(event) {
     event.preventDefault();
 
@@ -101,3 +105,22 @@ function checkout() {
 
     window.location.href = "checkout.html";
 }
+/* reviews javascript */
+const stars = document.querySelectorAll(".stars i")
+
+// loop through stars
+stars.forEach((star, index1) => {
+
+    star.addEventListener("click", () => {
+
+
+        stars.forEach((star, index2) => {
+          index1 >=  index2 ? star.classList.add("active") : star.classList.remove("active");
+        });
+    });
+});
+
+
+
+
+

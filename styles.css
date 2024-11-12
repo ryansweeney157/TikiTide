@@ -393,6 +393,90 @@ form {
       transform: translate3d(85px,0,0);
     }
   }
+
+  /* Login page */
+
+  .log_in {
+     background-color: #fcd5ad;
+     width: 70%;
+     max-width: 400px;
+     margin: 0 auto;
+     margin-top: 200px;
+     padding-top: 100px;
+     padding-bottom: 100px;
+     text-align: center;
+     border-radius: 15px;
+  }
+
+  .rewards {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .rewards h1, .rewards h2 {
+    margin-top: 50px;
+  }
+
+  .reward-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    margin-top: 50px;
+    gap: 25px;
+    padding-bottom: 100px;
+  }
+
+  .reward-item {
+    background-color: #fcd5ad;
+    width: 100%;
+    text-align: left;
+    border-radius: 15px;
+  }
+
+  .top {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid #2B2B2B;
+  }
+
+  .top i {
+    font-size: 4em;
+    margin-left: 10%;
+    background-color: #cae5ff;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+  }
+
+  .fa-cake-candles {
+    font-size: 1.2em;
+  }
+
+  .bottom {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .reward-item h3 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+  }
+
+  .reward-item li {
+    margin-left: 25px;
+    line-height: 1.5em;
+    font-size: 1.2em;
+  }
+
+  
   /*Shrinking for mobile*/
   @media (max-width: 768px) {
     .waves {

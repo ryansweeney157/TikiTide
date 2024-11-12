@@ -25,8 +25,30 @@
     </main>
 
     <script>
-      
 
+        function calculateTime(orders) {
+            let total_time = 0;
+            let first_item = true;
+        
+      
+        orders.forEach(order => {
+            if(first_item) {
+                total += 15;
+                first_item = false;
+            
+        }  else if(order === "drink") {
+            total_time += 1;
+        } else if(order === "dessert") {
+            total_time += 5;
+        } else {
+            total_time += 5;
+        }
+
+        });
+
+        return total_time;
+    }
+ 
         function displayOrderSummary() { 
 
         const cart = JSON.parse(localStorage.getItem("cart")) || [];

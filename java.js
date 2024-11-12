@@ -5,6 +5,7 @@ function signup(){
     // console.log(pass)
 
     localStorage.setItem(email, pass)
+    window.location.href = "signup.html"; 
 }
 
 function login(){
@@ -25,6 +26,22 @@ function login(){
         alert("user not found")
 
 
+}
+
+function manager() {
+    window.location.href = "manager.html"
+}
+
+function managerLog() {
+    let email = document.getElementById("email").value;
+    let pass =  document.getElementById("pass").value;
+
+    if (email === "ryansweeney157@gmail.com" && pass === "56watermelon78") {
+        alert("Login successful!");
+        window.location.href = "manager-menu.html"
+    } else {
+        alert("Incorrect email or password!")
+    }
 }
 let cart = []; 
 

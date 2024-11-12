@@ -7,19 +7,23 @@
 </head>
 
 <body>
-    <div class="login"
+    <div class="log_in">
     <h1>Log In</h1>
 
-    Email: <input type="text"  id="email"> <br>
-    Password: <input type="password" id="pass"> <br><br>
 
-    <button onclick="login()">Log in</button><br><br>
+   <p>Email:&nbsp;<input type="text"  id="email"> <br></p>
+    <p>Password: <input type="password" id="pass"> <br><br></p>
+
+    <button class="menu-btn" onclick="login()">Log in</button><br><br>
 
     <div>
-        <a href="signup.html"><button onclick="signup()">Sign Up</button></a>
+        <button class="menu-btn" onclick="signup()">Sign Up</button>
     </div>
 
+    <button style="margin-top: 25px;" class="menu-btn" onclick="manager()"> Manager?</button>
     
+    </div>
+
     <script src="java.js"></script>
 </body>
 </html>

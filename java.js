@@ -26,7 +26,6 @@ function login(){
 
 
 }
-
 let cart = []; 
 
 function addToCart(itemName, itemPrice, itemImage) {
@@ -64,10 +63,10 @@ function updateCartDisplay() {
         itemName.classList.add("cart-item-name")
 
         const itemPrice = document.createElement("span");
-        itemPrice.textContent=  - $${item.price.toFixed(2)};
+        itemPrice.textContent= ` - $${item.price.toFixed(2)}`;
         itemPrice.classList.add("cart-item-price");
 
-const removeButton = document.createElement("button")
+        const removeButton = document.createElement("button")
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-button");
         removeButton.onclick = () => removeFromCart(index);
@@ -79,11 +78,12 @@ const removeButton = document.createElement("button")
         cartItemsList.appendChild(listItem);
         total += item.price;
 
-
+        
 
 
     });
-totalDisplay.textContent = total.toFixed(2); 
+
+    totalDisplay.textContent = total.toFixed(2); 
 }
 function checkout() {
     if (cart.length === 0) {
@@ -105,17 +105,38 @@ function checkout() {
 
     window.location.href = "checkout.html";
 }
+
 /* reviews javascript */
-const stars = document.querySelectorAll(".stars i")
 
-// loop through stars
-stars.forEach((star, index1) => {
+const stars = document.querySelectorAll(".stars i");
+let selectedRating = 0; 
 
+stars.forEach((star, index) => {
     star.addEventListener("click", () => {
-      
-        
-        stars.forEach((star, index2) => {
-          index1 >=  index2 ? star.classList.add("active") : star.classList.remove("active");
+        selectedRating = index + 1; 
+
+        stars.forEach((star, idx) => {
+            idx < selectedRating ? star.classList.add("active") : star.classList.remove("active");
         });
     });
+});
+
+document.getElementById("review").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    const thoughts = document.getElementById("thoughts").value.trim();
+
+    if (selectedRating > 0 && thoughts) {
+        const review = {
+            rating: selectedRating,
+            thoughts: thoughts
+        };
+
+        localStorage.setItem("customerReview", JSON.stringify(review));
+
+        alert("Thank you for your feedback!");
+        location.reload();
+    } else {
+        alert("Please provide both a rating and your thoughts.");
+    }
 });

@@ -43,6 +43,11 @@ function managerLog() {
         alert("Incorrect email or password!")
     }
 }
+
+function removeItem(button) {
+    const menuItem = button.closest(".menu-item");
+    menuItem.remove();
+}
 let cart = []; 
 
 function addToCart(itemName, itemPrice, itemImage) {

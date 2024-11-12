@@ -150,6 +150,7 @@ body {
     width: 100px;
 }
 
+
 .menu-btn:hover {
     background-color: #cae5ff;
     transition: 0.3s;
@@ -475,6 +476,20 @@ form {
     line-height: 1.5em;
     font-size: 1.2em;
   }
+
+
+  /* Manager */
+  
+.manager-btn {
+    background-color: #ed7979;
+    color: #fff9ec;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    height: 32px;
+}
+
 
   
   /*Shrinking for mobile*/

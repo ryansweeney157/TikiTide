@@ -87,6 +87,7 @@ function addItem(type) {
         } else if (type === 'drink') {
             document.getElementById("drinks").appendChild(newItem);
         }
+        clearManagerInputs(type);
     } else {
         alert("Please fill out all fields to add a new item.");
     }
@@ -97,14 +98,16 @@ function clearManagerInputs(type) {
         document.getElementById("main-name").value = "";
         document.getElementById("main-price").value = "";
         document.getElementById("main-image").value = "";
-    } else if (type === 'drink') {
-        document.getElementById("drink-name").value = "";
-        document.getElementById("drink-price").value = "";
-        document.getElementById("drink-image").value = "";
+
     } else if (type === 'dessert'){
         document.getElementById("dessert-name").value = "";
         document.getElementById("dessert-price").value = "";
         document.getElementById("dessert-image").value = "";
+
+    } else if (type === 'drink'){
+        document.getElementById("drink-name").value = "";
+        document.getElementById("drink-price").value = "";
+        document.getElementById("drink-image").value = "";
     }
 }
 

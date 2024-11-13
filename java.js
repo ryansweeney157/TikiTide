@@ -43,11 +43,66 @@ function managerLog() {
         alert("Incorrect email or password!")
     }
 }
-
 function removeItem(button) {
     const menuItem = button.closest(".menu-item");
     menuItem.remove();
 }
+
+function addItem(type) {
+    let itemName, itemPrice, itemImage;
+
+    if (type === 'main') {
+        itemImage = document.getElementById("main-image").value;
+        itemName = document.getElementById("main-name").value;
+        itemPrice = document.getElementById("main-price").value;
+
+    } else if (type === 'dessert') {
+        itemImage = document.getElementById("dessert-image").value;
+        itemName = document.getElementById("dessert-name").value;
+        itemPrice = document.getElementById("dessert-price").value;
+    } else if (type === 'drink') {
+        itemImage = document.getElementById("drink-image").value;
+        itemName = document.getElementById("drink-name").value;
+        itemPrice = document.getElementById("drink-price").value;
+    }
+
+    if (itemName && itemPrice && itemImage) {
+        const newItem = document.createElement("div");
+        newItem.classList.add("menu-item");
+        newItem.innerHTML = `
+        <div>
+            <img class="menu-img" src="${itemImage}">
+        </div>
+        <div>
+            <h4>${itemName} - $${parseFloat(itemPrice).toFixed(2)}</h4>
+            <p>Description: Enter description here. <em>Calories</em></p>
+            <button class="menu-btn" onclick="addToCart('${itemName}')">Add to Cart</button>
+            <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+        </div>
+        `;
+        document.getElementById("menu").appendChild(newItem);
+        clearManagerInputs(type);
+    } else {
+        alert("Please fill out all fields to add a new item.");
+    }
+}
+
+function clearManagerInputs(type) {
+    if (type === 'main') {
+        document.getElementById("main-name").value = "";
+        document.getElementById("main-price").value = "";
+        document.getElementById("main-image").value = "";
+    } else if (type === 'drink') {
+        document.getElementById("drink-name").value = "";
+        document.getElementById("drink-price").value = "";
+        document.getElementById("drink-image").value = "";
+    } else if (type === 'dessert'){
+        document.getElementById("dessert-name").value = "";
+        document.getElementById("dessert-price").value = "";
+        document.getElementById("dessert-image").value = "";
+    }
+}
+
 let cart = []; 
 
 function addToCart(itemName, itemPrice, itemImage) {

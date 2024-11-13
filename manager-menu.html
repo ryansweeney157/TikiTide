@@ -190,6 +190,17 @@
                 </div>
             </div>
 
+            <div class="addItem">
+            <h3>Add dish</h3>
+            <label for="main-name">Item Name:</label>
+            <input type="text" id="main-name" placeholder="Enter the name of your item">
+            <label for="main-price">Item Price:</label>
+            <input type="number" id="main-price" placeholder="Enter the price of your item">
+            <label for="main-image">Image URL:</label>
+            <input type="text" id="main-image" placeholder="Enter the Image url of Item you want">
+            <button class="manager-btn" onclick="addItem('main')">Add Main Dish</button>
+            </div>
+        </div>
            
             <h2 class="menu-head">Desserts</h2>
             
@@ -202,7 +213,7 @@
                 <div>
                 <h4>Pineapple Paradise Parfait - $5.99</h4>
                 <p>Description: Vanilla yogurt, pineapple, strawberries, and granola. 300 calories</p>
-                <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99, 'dessert', 'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99,  'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
@@ -214,7 +225,7 @@
                 <div>
                 <h4>Coconut Cream Crunch - $4.99</h4>
                 <p>Description: A slice of creamy, crunchy coconut cream pie. 400 calories</p>
-                <button class="menu-btn" onclick="addToCart('Coconut Cream Crunch', 4.99, 'dessert', 'https://tse3.mm.bing.net/th?id=OIG4.B7_QdNBBr689.MI0NVHG&pid=ImgGn')">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Coconut Cream Crunch', 4.99,  'https://tse3.mm.bing.net/th?id=OIG4.B7_QdNBBr689.MI0NVHG&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
@@ -226,7 +237,7 @@
                 <div>
                 <h4>Mango Magic Mousse - $4.99</h4>
                 <p>Description: Creamy mango mousse with tropical flavors. 450 calories</p>
-                <button class="menu-btn" onclick="addToCart('Mango Magic Mousse', 4.99, 'dessert', 'https://tse2.mm.bing.net/th?id=OIG1.7Il.C6IJn1wsFG2dSLrR&pid=ImgGn')">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Mango Magic Mousse', 4.99,  'https://tse2.mm.bing.net/th?id=OIG1.7Il.C6IJn1wsFG2dSLrR&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
@@ -238,7 +249,7 @@
                 <div>
                 <h4>Banana Breeze Bites - $3.99</h4>
                 <p>Description: Delicious, frozen, sweet, dark chocolate covered banana bites. </p>
-                <button class="menu-btn" onclick="addToCart('Banana Breeze Bites', 3.99, 'dessert', 'https://tse4.mm.bing.net/th?id=OIG1.8iW_J1Jabucls4g2SfTW&pid=ImgGn')">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Banana Breeze Bites', 3.99,  'https://tse4.mm.bing.net/th?id=OIG1.8iW_J1Jabucls4g2SfTW&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
@@ -250,7 +261,7 @@
                 <div>
                 <h4>Tropical Tiki Tiramisu - $6.99</h4>
                 <p>Description: Tiramisu with a coconut and pineapple twist. 500 calories</p>
-                <button class="menu-btn" onclick="addToCart('Tropical Tiki Tiramisu', 6.99, 'dessert', 'https://tse4.mm.bing.net/th?id=OIG2.9fOh4.ycvC8Oovts4ObY&pid=ImgGn')">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Tropical Tiki Tiramisu', 6.99,  'https://tse4.mm.bing.net/th?id=OIG2.9fOh4.ycvC8Oovts4ObY&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
 
@@ -263,11 +274,20 @@
                 <div>
                 <h4>Papaya Passion Pudding - $3.99</h4>
                 <p>Description: Papaya-flavored pudding. 350 calories</p>
-                <button class="menu-btn" onclick="addToCart('Papaya Passion Pudding', 3.99, 'dessert', 'https://tse4.mm.bing.net/th?id=OIG3.lnbyeKsJyuRc65A4GBcF&pid=ImgGn')">Add to Cart</button>
+                <button class="menu-btn" onclick="addToCart('Papaya Passion Pudding', 3.99,  'https://tse4.mm.bing.net/th?id=OIG3.lnbyeKsJyuRc65A4GBcF&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
-           
+            <div class="addItem">
+                <h3>Add Dessert</h3>
+                <label for="dessert-name">Item Name:</label>
+                <input type="text" id="dessert-name" placeholder="Enter the name of your item">
+                <label for="dessert-price">Item Price:</label>
+                <input type="number" id="dessert-price" placeholder="Enter the price of your item">
+                <label for="dessert-image">Image URL:</label>
+                <input type="text" id="dessert-image" placeholder="Enter the Image url of Item you want">
+                <button  class="manager-btn" onclick="addItem('dessert')">Add Dessert</button>
+                </div>
             </div>
             
             <h2 class="menu-head">Drinks</h2>
@@ -338,6 +358,16 @@
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
             </div>
 
+            <div class="addItem">
+                <h3>Add Drink</h3>
+                <label for="drink-name">Item Name:</label>
+                <input type="text" id="drink-name" placeholder="Enter the name of your item">
+                <label for="drink-price">Item Price:</label>
+                <input type="number" id="drink-price" placeholder="Enter the price of your item">
+                <label for="drink-image">Image URL:</label>
+                <input type="text" id="drink-image" placeholder="Enter the Image url of Item you want">
+                <button onclick="addItem('drink')">Add Drink</button>
+                </div>
             </div>
 
         </section>

@@ -61,7 +61,9 @@
 
         <h2 class="menu-head">Main Dishes</h2>
         
+       
         <div id="menu">
+            <div id="main-dishes" class="menu">
             <div class="menu-item">
                 <div>
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG2.j9FT4TOJSemT4jVpLagq&pid=ImgGn">
@@ -190,21 +192,13 @@
                 </div>
             </div>
 
-            <div class="addItem">
-            <h3>Add dish</h3>
-            <label for="main-name">Item Name:</label>
-            <input type="text" id="main-name" placeholder="Enter the name of your item">
-            <label for="main-price">Item Price:</label>
-            <input type="number" id="main-price" placeholder="Enter the price of your item">
-            <label for="main-image">Image URL:</label>
-            <input type="text" id="main-image" placeholder="Enter the Image url of Item you want">
-            <button class="manager-btn" onclick="addItem('main')">Add Main Dish</button>
-            </div>
-        </div>
-           
+           </div> 
+       
+       
             <h2 class="menu-head">Desserts</h2>
             
-            <div id="menu">
+            
+            <div id="desserts" class="menu">
             <div class="menu-item">
                 <div>
                 <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn">
@@ -278,21 +272,12 @@
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
-            <div class="addItem">
-                <h3>Add Dessert</h3>
-                <label for="dessert-name">Item Name:</label>
-                <input type="text" id="dessert-name" placeholder="Enter the name of your item">
-                <label for="dessert-price">Item Price:</label>
-                <input type="number" id="dessert-price" placeholder="Enter the price of your item">
-                <label for="dessert-image">Image URL:</label>
-                <input type="text" id="dessert-image" placeholder="Enter the Image url of Item you want">
-                <button  class="manager-btn" onclick="addItem('dessert')">Add Dessert</button>
-                </div>
-            </div>
+          </div>
             
             <h2 class="menu-head">Drinks</h2>
 
-            <div id="menu">
+            
+            <div id="drinks" class="menu">
             <div class="menu-item">
 
                 <div>
@@ -358,20 +343,44 @@
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
             </div>
 
-            <div class="addItem">
-                <h3>Add Drink</h3>
-                <label for="drink-name">Item Name:</label>
-                <input type="text" id="drink-name" placeholder="Enter the name of your item">
-                <label for="drink-price">Item Price:</label>
-                <input type="number" id="drink-price" placeholder="Enter the price of your item">
-                <label for="drink-image">Image URL:</label>
-                <input type="text" id="drink-image" placeholder="Enter the Image url of Item you want">
-                <button onclick="addItem('drink')">Add Drink</button>
-                </div>
-            </div>
-
+        </div>
+          
         </section>
 
+        <div class="add-grid">
+        <div class="addItem">
+            <h3>Add dish</h3>
+            <label for="main-name">Item Name:</label>
+            <input type="text" id="main-name" placeholder="Enter the name of your item">
+            <label for="main-price">Item Price:</label>
+            <input type="number" id="main-price" placeholder="Enter the price of your item">
+            <label for="main-image">Image URL:</label>
+            <input type="text" id="main-image" placeholder="Enter the Image URL of the item you want">
+            <button class="manager-btn" onclick="addItem('main')">Add Main Dish</button>
+        </div>
+
+        <div class="addItem">
+            <h3>Add Dessert</h3>
+            <label for="dessert-name">Item Name:</label>
+            <input type="text" id="dessert-name" placeholder="Enter the name of your item">
+            <label for="dessert-price">Item Price:</label>
+            <input type="number" id="dessert-price" placeholder="Enter the price of your item">
+            <label for="dessert-image">Image URL:</label>
+            <input type="text" id="dessert-image" placeholder="Enter the Image url of Item you want">
+            <button  class="manager-btn" onclick="addItem('dessert')">Add Dessert</button>
+            </div>
+        
+        <div class="addItem">
+            <h3>Add Drink</h3>
+            <label for="drink-name">Item Name:</label>
+            <input type="text" id="drink-name" placeholder="Enter the name of your item">
+            <label for="drink-price">Item Price:</label>
+            <input type="number" id="drink-price" placeholder="Enter the price of your item">
+            <label for="drink-image">Image URL:</label>
+            <input type="text" id="drink-image" placeholder="Enter the Image url of Item you want">
+            <button onclick="addItem('drink')">Add Drink</button>
+        </div>
+        </div>
        
         <section id="cart">
           

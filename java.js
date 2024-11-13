@@ -80,8 +80,13 @@ function addItem(type) {
             <button class="manager-btn" onclick="removeItem(this)">Remove</button>
         </div>
         `;
-        document.getElementById("menu").appendChild(newItem);
-        clearManagerInputs(type);
+        if (type === 'main') {
+            document.getElementById("main-dishes").appendChild(newItem);
+        } else if (type === 'dessert') {
+            document.getElementById("desserts").appendChild(newItem);
+        } else if (type === 'drink') {
+            document.getElementById("drinks").appendChild(newItem);
+        }
     } else {
         alert("Please fill out all fields to add a new item.");
     }

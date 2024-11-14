@@ -47,23 +47,27 @@ function removeItem(button) {
     const menuItem = button.closest(".menu-item");
     menuItem.remove();
 }
-
 function addItem(type) {
-    let itemName, itemPrice, itemImage;
+    let itemName, itemPrice, itemImage, itemInfo, itemCalories;
 
     if (type === 'main') {
-        itemImage = document.getElementById("main-image").value;
         itemName = document.getElementById("main-name").value;
         itemPrice = document.getElementById("main-price").value;
-
+        itemImage = document.getElementById("main-image").value;
+        itemInfo = document.getElementById("main-info").value;
+        itemCalories = document.getElementById("main-calories").value;
     } else if (type === 'dessert') {
-        itemImage = document.getElementById("dessert-image").value;
         itemName = document.getElementById("dessert-name").value;
         itemPrice = document.getElementById("dessert-price").value;
+        itemImage = document.getElementById("dessert-image").value;
+        itemInfo = document.getElementById("dessert-info").value;
+        itemCalories = document.getElementById("dessert-calories").value;
     } else if (type === 'drink') {
-        itemImage = document.getElementById("drink-image").value;
         itemName = document.getElementById("drink-name").value;
         itemPrice = document.getElementById("drink-price").value;
+        itemImage = document.getElementById("drink-image").value;
+        itemInfo = document.getElementById("drink-info").value;
+        itemCalories = document.getElementById("drink-calories").value;
     }
 
     if (itemName && itemPrice && itemImage) {
@@ -75,8 +79,8 @@ function addItem(type) {
         </div>
         <div>
             <h4>${itemName} - $${parseFloat(itemPrice).toFixed(2)}</h4>
-            <p>Description: Enter description here. <em>Calories</em></p>
-            <button class="menu-btn" onclick="addToCart('${itemName}')">Add to Cart</button>
+            <p>${itemInfo ? `Description: ${itemInfo}` : ''} ${itemCalories ? `<em>${itemCalories} Calories</em>` : ''}</p>
+            <button class="menu-btn" onclick="addToCart('${itemName}', ${itemPrice}, '${itemImage}', '${itemInfo || ''}', '${itemCalories || ''}')">Add to Cart</button>
             <button class="manager-btn" onclick="removeItem(this)">Remove</button>
         </div>
         `;
@@ -87,46 +91,55 @@ function addItem(type) {
         } else if (type === 'drink') {
             document.getElementById("drinks").appendChild(newItem);
         }
+
         clearManagerInputs(type);
+        saveMenuToLocalStorage(); // Save to localStorage
     } else {
         alert("Please fill out all fields to add a new item.");
     }
+
+
 }
+
+
 
 function clearManagerInputs(type) {
     if (type === 'main') {
         document.getElementById("main-name").value = "";
+        document.getElementById("main-info").vlaue = "";
+        document.getElementById("main-calories").value = "";
         document.getElementById("main-price").value = "";
         document.getElementById("main-image").value = "";
 
     } else if (type === 'dessert'){
         document.getElementById("dessert-name").value = "";
+        document.getElementById("dessert-info").value = "";
+        document.getElementById("dessert-calories").value = "";
         document.getElementById("dessert-price").value = "";
         document.getElementById("dessert-image").value = "";
 
     } else if (type === 'drink'){
         document.getElementById("drink-name").value = "";
+        document.getElementById("drink-info").value = "";
+        document.getElementById("drink-calories").value = "";
         document.getElementById("drink-price").value = "";
         document.getElementById("drink-image").value = "";
     }
 }
-
 let cart = []; 
 
-function addToCart(itemName, itemPrice, itemImage) {
-    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage);
-    const item = { name: itemName, price: itemPrice, image: itemImage };
+function addToCart(itemName, itemPrice, itemImage, itemInfo, itemCalories) {
+    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage, "Info:", itemInfo, "Calories:", itemCalories);
+    const item = { name: itemName, price: itemPrice, image: itemImage, info: itemInfo, calories: itemCalories };
     cart.push(item);
     updateCartDisplay();
 }
 
 function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartDisplay();
+    console.log(`Removing item at index: ${index}`); 
+    cart.splice(index, 1); 
+    updateCartDisplay(); 
 }
-
-
-
 
 function updateCartDisplay() {
     const cartItemsList = document.getElementById("cart-items");
@@ -141,20 +154,23 @@ function updateCartDisplay() {
         const img = document.createElement("img");
         img.src = item.image || "";
         img.alt = item.name;
-        img.classList.add("cart-item-img")
+        img.classList.add("cart-item-img");
 
-        const itemName = document.createElement("span")
+        const itemName = document.createElement("span");
         itemName.textContent = item.name;
-        itemName.classList.add("cart-item-name")
+        itemName.classList.add("cart-item-name");
 
         const itemPrice = document.createElement("span");
-        itemPrice.textContent= ` - $${item.price.toFixed(2)}`;
+        itemPrice.textContent = ` - $${item.price.toFixed(2)}`;
         itemPrice.classList.add("cart-item-price");
 
-        const removeButton = document.createElement("button")
+        const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-button");
-        removeButton.onclick = () => removeFromCart(index);
+        removeButton.onclick = function() {
+            console.log(`Remove button clicked for index: ${index}`);
+            removeFromCart(index);
+        }
 
         listItem.appendChild(img);
         listItem.appendChild(itemName);

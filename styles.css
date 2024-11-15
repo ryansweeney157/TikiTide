@@ -89,8 +89,9 @@ h4 {
 .cart-item-img {
     width: 80px;
     border-radius: 15px;
-    height: auto;
+    height: 80px;
     margin-right: 10px;
+    margin-left: 10px;
     vertical-align: middle;
 }
 
@@ -520,4 +521,8 @@ form {
       height:30vh;
     }
   
+  }
+
+  .hide-remove-buttons .manager-btn {
+    display: none;
   }

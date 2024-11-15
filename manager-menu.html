@@ -76,20 +76,7 @@
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
-            <div class="menu-item">
-                <div>
-                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.9v2YRPj2Vq6O6qebMNyY&pid=ImgGn">
-                </div>
-
-                <div>
-                <h4>Big Boy Burger - $15.99</h4>
-                
-                <p>Description: A quarter-pound grass-fed burger, with bacon, cheddar cheese, onion, tomato, lettuce, and house burger sauce on a brioche bun. <em>1200 calories</em></p>
-                <button class="menu-btn" onclick="addToCart('Big Boy Burger', 15.99, 'https://tse3.mm.bing.net/th?id=OIG2.9v2YRPj2Vq6O6qebMNyY&pid=ImgGn')">Add to Cart</button>
-                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
-                </div>
-
-            </div>
+           
             <div class="menu-item">
                 <div>
                 <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG3.L.Q_F0lfuugnU4uuh6qe&pid=ImgGn">
@@ -101,8 +88,11 @@
                 <button class="menu-btn" onclick="addToCart('Tangy Tuna Tacos', 16.99, 'https://tse1.mm.bing.net/th?id=OIG3.L.Q_F0lfuugnU4uuh6qe&pid=ImgGn')">Add to Cart</button>
                 <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                 </div>
-
             </div>
+
+                
+
+          
             <div class="menu-item">
                 <div>
                 <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.VDKVqLovdhm0jS3T9ChE&pid=ImgGn">
@@ -417,6 +407,9 @@
     </main>
 
     <script src="java.js"></script>
+    <script> 
+        localStorage.removeItem("userPage");
+    </script>
 </body>
 </html>
 

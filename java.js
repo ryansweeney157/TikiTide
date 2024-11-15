@@ -46,7 +46,10 @@ function managerLog() {
 function removeItem(button) {
     const menuItem = button.closest(".menu-item");
     menuItem.remove();
+    saveMenu();
 }
+
+
 function addItem(type) {
     let itemName, itemPrice, itemImage, itemInfo, itemCalories;
 
@@ -79,11 +82,12 @@ function addItem(type) {
         </div>
         <div>
             <h4>${itemName} - $${parseFloat(itemPrice).toFixed(2)}</h4>
-            <p>${itemInfo ? `Description: ${itemInfo}` : ''} ${itemCalories ? `<em>${itemCalories} Calories</em>` : ''}</p>
-            <button class="menu-btn" onclick="addToCart('${itemName}', ${itemPrice}, '${itemImage}', '${itemInfo || ''}', '${itemCalories || ''}')">Add to Cart</button>
-            <button class="manager-btn" onclick="removeItem(this)">Remove</button>
-        </div>
+            <p>${itemInfo}</p>
+            <p>Calories: ${itemCalories}</p>
+            <button class="menu-btn" onclick="addToCart('${itemName}', ${itemPrice}, '${itemImage}')">Add to Cart</button>
+           <button class="manager-btn" onclick="removeItem(this)">Remove</button>
         `;
+        
         if (type === 'main') {
             document.getElementById("main-dishes").appendChild(newItem);
         } else if (type === 'dessert') {
@@ -93,13 +97,14 @@ function addItem(type) {
         }
 
         clearManagerInputs(type);
-        saveMenuToLocalStorage(); // Save to localStorage
+        saveMenu(); // Save to localStorage
     } else {
         alert("Please fill out all fields to add a new item.");
     }
-
-
 }
+
+
+
 
 
 
@@ -205,6 +210,46 @@ function checkout() {
     alert("Thank you for your purchase!");
 
     window.location.href = "checkout.html";
+}
+
+
+/* saves any changes to the menu */
+function saveMenu() {
+    const mainDishes = document.getElementById("main-dishes").innerHTML;
+    const desserts = document.getElementById("desserts").innerHTML;
+    const drinks = document.getElementById("drinks").innerHTML;
+
+    localStorage.setItem("mainDishes", mainDishes);
+    localStorage.setItem("desserts", desserts);
+    localStorage.setItem("drinks", drinks);
+}
+
+function loadMenu() {
+    if (localStorage.getItem("mainDishes")) {
+        document.getElementById("main-dishes").innerHTML = localStorage.getItem("mainDishes");
+    }
+
+    if (localStorage.getItem("desserts")) {
+        document.getElementById("desserts").innerHTML = localStorage.getItem("desserts");
+    }
+
+    if (localStorage.getItem("drinks")) {
+        document.getElementById("drinks").innerHTML = localStorage.getItem("drinks");
+    }
+}
+
+
+function applyStyles() {
+    if (localStorage.getItem("userPage") === "true") {
+        document.body.classList.add("hide-remove-buttons")
+    } else {
+        document.body.classList.remove("hide-remove-buttons");
+    }
+}
+
+window.onload = function() {
+    applyStyles();
+    loadMenu();
 }
 
 /* reviews javascript */

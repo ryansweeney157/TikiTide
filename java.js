@@ -6,27 +6,40 @@ function signup(){
 
     localStorage.setItem(email, pass)
     window.location.href = "signup.html"; 
+
+    let user = {
+        password: pass,
+        rewardPoints: 100
+    };
+
+    localStorage.setItem(email, JSON.stringify(user));
+
 }
 
+function guest(){
+    window.location.href = "index.html"; 
+}
 function login(){
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
     //console.log(email)
     // console.log(pass)
 
-    if(localStorage.getItem(email)){
-        if(pass === localStorage.getItem(email)){
-            location.replace("home.html")
+    let user = JSON.parse(localStorage.getItem(email));
+
+    if (user) {
+        if (pass === user.password) {
+            location.replace(home.html);
+        } else {
+            alert("Wrong password");
         }
-        else
-            alert("wrong passward")
-
+     } else {
+            alert("User not found");
+        }
     }
-    else
-        alert("user not found")
 
 
-}
+
 
 function manager() {
     window.location.href = "manager.html"

@@ -29,13 +29,16 @@ function login(){
 
     if (user) {
         if (pass === user.password) {
-            location.replace(home.html);
+            localStorage.setItem("loggedInUserEmail", email);
+            location.replace("index.html");
         } else {
             alert("Wrong password");
         }
      } else {
             alert("User not found");
         }
+    
+    
     }
 
 
@@ -279,3 +282,24 @@ stars.forEach((star, index1) => {
         });
     });
 });
+
+function displayRewardsPoints() {
+    // Retrieve the logged-in user's email from local storage
+    let email = localStorage.getItem("loggedInUserEmail");
+
+    if (email) {
+      
+        let user = JSON.parse(localStorage.getItem(email));
+
+        if (user) {
+            
+            document.getElementById("rewards-points").textContent = user.rewardsPoints;
+        } else {
+            alert("User not found");
+        }
+    } else {
+        alert("No user is logged in");
+    }
+}
+
+window.onload = displayRewardsPoints;

@@ -1,46 +1,45 @@
-function signup(){
+function signup() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    // console.log(email)
-    // console.log(pass)
-
-    localStorage.setItem(email, pass)
-    window.location.href = "signup.html"; 
 
     let user = {
         password: pass,
-        rewardPoints: 100
+        rewardsPoints: 100 // Initial rewards points
     };
 
+    
     localStorage.setItem(email, JSON.stringify(user));
-
+    
+    window.location.href = "signup.html"; 
 }
+
 
 function guest(){
+    localStorage.removeItem("loggedInUserEmail")
     window.location.href = "index.html"; 
 }
-function login(){
+function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    //console.log(email)
-    // console.log(pass)
 
     let user = JSON.parse(localStorage.getItem(email));
 
     if (user) {
         if (pass === user.password) {
-            localStorage.setItem("loggedInUserEmail", email);
-            location.replace("index.html");
+            
+            if (!user.rewardsPoints) {
+                user.rewardsPoints = 100; 
+                localStorage.setItem(email, JSON.stringify(user)); 
+            }
+            localStorage.setItem("loggedInUserEmail", email); // Store the logged-in user's email
+            location.replace("home.html");
         } else {
             alert("Wrong password");
         }
-     } else {
-            alert("User not found");
-        }
-    
-    
+    } else {
+        alert("User not found");
     }
-
+}
 
 
 
@@ -284,22 +283,20 @@ stars.forEach((star, index1) => {
 });
 
 function displayRewardsPoints() {
-    // Retrieve the logged-in user's email from local storage
     let email = localStorage.getItem("loggedInUserEmail");
 
     if (email) {
-      
         let user = JSON.parse(localStorage.getItem(email));
 
         if (user) {
-            
             document.getElementById("rewards-points").textContent = user.rewardsPoints;
         } else {
-            alert("User not found");
+            document.getElementById("rewards-points").textContent = "0";
         }
     } else {
-        alert("No user is logged in");
+        document.getElementById("rewards-points").textContent = "0";
     }
 }
 
 window.onload = displayRewardsPoints;
+

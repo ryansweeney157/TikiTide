@@ -305,47 +305,40 @@ window.onload = displayRewardsPoints;
 
 
 function calculateTime(orders) {
-    let total_time = 0;
-    let first_item = true;
-
-
-orders.forEach(order => {
-    if(first_item) {
-        total += 15;
-        first_item = false;
+    let total_time = 15; 
+    const itemCounts = {}; 
     
-}  else if(order === "drink") {
-    total_time += 1;
-} else if(order === "dessert") {
-    total_time += 5;
-} else {
-    total_time += 5;
-}
+    orders.forEach(order => {
+        if (itemCounts[order]) {
+            itemCounts[order]++;
+        } else {
+            itemCounts[order] = 1;
+        }
+    });
 
-});
+    for (const item in itemCounts) {
+        if (itemCounts[item] > 1) {
+            total_time += 5 * (itemCounts[item] - 1); 
+        }
+    }
 
-return total_time;
+    return total_time;
 }
 
 function displayOrderSummary() { 
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderSummaryElement = document.getElementById("order-summary"); 
+    const totalAmountElement = document.getElementById("total-amount"); 
+    let total = localStorage.getItem("totalAmount");
 
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
-const orderSummaryElement = document.getElementById("order-summary"); 
-
-const totalAmountElement = document.getElementById("total-amount"); 
-
-let total = localStorage.getItem("totalAmount");
-
-cart.forEach(item => { 
-const listItem = document.createElement("li");
-
- listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-
-  orderSummaryElement.appendChild(listItem); }); 
+    cart.forEach(item => { 
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        orderSummaryElement.appendChild(listItem); 
+    }); 
   
-  totalAmountElement.textContent = total; }
-
+    totalAmountElement.textContent = total; 
+}
 
 let countdownTime = 15 * 60; 
 
@@ -368,6 +361,12 @@ function startCountdown() {
 }
 
 window.onload = function() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    const orders = cart.map(item => item.name); 
+    
+    const totalMinutes = calculateTime(orders);
+    countdownTime = totalMinutes * 60; 
     displayOrderSummary();
     startCountdown();
 };

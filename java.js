@@ -27,20 +27,26 @@ function login() {
 
     if (user) {
         if (pass === user.password) {
-            
-            if (!user.rewardsPoints) {
-                user.rewardsPoints = 100; 
-                localStorage.setItem(email, JSON.stringify(user)); 
+            let lastLoginDate = new Date(user.lastLogin || 0);
+            let today = new Date().setHours(0,0,0,0);
+
+            if(lastLoginDate < today) {
+                user.rewardsPoints += 10;
+                user.lastLogin = new Date();
+                localStorage.setItem(email, JSON.stringify(user));
             }
-            localStorage.setItem("loggedInUserEmail", email); // Store the logged-in user's email
+
+            localStorage.setItem("loggedInUserEmail", email);
             location.replace("home.html");
-        } else {
-            alert("Wrong password");
+    } else {
+        alert("wrong password");
         }
     } else {
         alert("User not found");
     }
 }
+
+
 
 
 
@@ -217,8 +223,27 @@ function checkout() {
     localStorage.setItem("totalAmount", total.toFixed(2));
     localStorage.setItem("cart", JSON.stringify(cart))
 
+    const loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
+    if (loggedInUserEmail) {
+        let user = JSON.parse(localStorage.getItem(loggedInUserEmail));
+        if (user) {
+            let points = 0;
+
+            cart.forEach(item => {
+                if(item.info === 'main') {
+                    points += 100;
+                } else if (item.info === 'dessert') {
+                    points += 50;
+                }
+            });
+
+            user.rewardsPoints += points;
+            localStorage.setItem(loggedInUserEmail, JSON.stringify(user));
+        }
+    }
     window.location.href = "checkout.html";
 }
+
 
    function submitCheckout(event) {
     event.preventDefault();

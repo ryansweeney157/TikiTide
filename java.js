@@ -18,6 +18,7 @@ function guest(){
     localStorage.removeItem("loggedInUserEmail")
     window.location.href = "index.html"; 
 }
+
 function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
@@ -225,6 +226,8 @@ function checkout() {
     alert("Thank you for your purchase!");
 
     window.location.href = "checkout.html";
+
+
 }
 
 
@@ -300,3 +303,71 @@ function displayRewardsPoints() {
 
 window.onload = displayRewardsPoints;
 
+
+function calculateTime(orders) {
+    let total_time = 0;
+    let first_item = true;
+
+
+orders.forEach(order => {
+    if(first_item) {
+        total += 15;
+        first_item = false;
+    
+}  else if(order === "drink") {
+    total_time += 1;
+} else if(order === "dessert") {
+    total_time += 5;
+} else {
+    total_time += 5;
+}
+
+});
+
+return total_time;
+}
+
+function displayOrderSummary() { 
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+const orderSummaryElement = document.getElementById("order-summary"); 
+
+const totalAmountElement = document.getElementById("total-amount"); 
+
+let total = localStorage.getItem("totalAmount");
+
+cart.forEach(item => { 
+const listItem = document.createElement("li");
+
+ listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+  orderSummaryElement.appendChild(listItem); }); 
+  
+  totalAmountElement.textContent = total; }
+
+
+let countdownTime = 15 * 60; 
+
+function startCountdown() {
+    const countdownElement = document.getElementById("countdown");
+
+    const interval = setInterval(() => {
+        const minutes = Math.floor(countdownTime / 60);
+        const seconds = countdownTime % 60;
+
+        countdownElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+        if (countdownTime <= 0) {
+            clearInterval(interval);
+            countdownElement.textContent = "Your order has arrived!";
+        }
+
+        countdownTime--;
+    }, 1000);
+}
+
+window.onload = function() {
+    displayOrderSummary();
+    startCountdown();
+};

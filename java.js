@@ -1,47 +1,166 @@
-function signup(){
+function signup() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    // console.log(email)
-    // console.log(pass)
 
-    localStorage.setItem(email, pass)
+    let user = {
+        password: pass,
+        rewardsPoints: 100 // Initial rewards points
+    };
+
+    
+    localStorage.setItem(email, JSON.stringify(user));
+    
+    window.location.href = "signup.html"; 
 }
 
-function login(){
+
+function guest(){
+    localStorage.removeItem("loggedInUserEmail")
+    window.location.href = "index.html"; 
+}
+
+function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    //console.log(email)
-    // console.log(pass)
 
-    if(localStorage.getItem(email)){
-        if(pass === localStorage.getItem(email)){
-            location.replace("home.html")
+    let user = JSON.parse(localStorage.getItem(email));
+
+    if (user) {
+        if (pass === user.password) {
+            
+            if (!user.rewardsPoints) {
+                user.rewardsPoints = 100; 
+                localStorage.setItem(email, JSON.stringify(user)); 
+            }
+            localStorage.setItem("loggedInUserEmail", email); // Store the logged-in user's email
+            location.replace("home.html");
+        } else {
+            alert("Wrong password");
         }
-        else
-            alert("wrong passward")
-
+    } else {
+        alert("User not found");
     }
-    else
-        alert("user not found")
+}
 
 
+
+function manager() {
+    window.location.href = "manager.html"
+}
+
+function managerLog() {
+    let email = document.getElementById("email").value;
+    let pass =  document.getElementById("pass").value;
+
+    if (email === "ryansweeney157@gmail.com" && pass === "56watermelon78") {
+        alert("Login successful!");
+        window.location.href = "manager-menu.html"
+    } else {
+        alert("Incorrect email or password!")
+    }
+}
+function removeItem(button) {
+    const menuItem = button.closest(".menu-item");
+    menuItem.remove();
+    saveMenu();
+}
+
+
+function addItem(type) {
+    let itemName, itemPrice, itemImage, itemInfo, itemCalories;
+
+    if (type === 'main') {
+        itemName = document.getElementById("main-name").value;
+        itemPrice = document.getElementById("main-price").value;
+        itemImage = document.getElementById("main-image").value;
+        itemInfo = document.getElementById("main-info").value;
+        itemCalories = document.getElementById("main-calories").value;
+    } else if (type === 'dessert') {
+        itemName = document.getElementById("dessert-name").value;
+        itemPrice = document.getElementById("dessert-price").value;
+        itemImage = document.getElementById("dessert-image").value;
+        itemInfo = document.getElementById("dessert-info").value;
+        itemCalories = document.getElementById("dessert-calories").value;
+    } else if (type === 'drink') {
+        itemName = document.getElementById("drink-name").value;
+        itemPrice = document.getElementById("drink-price").value;
+        itemImage = document.getElementById("drink-image").value;
+        itemInfo = document.getElementById("drink-info").value;
+        itemCalories = document.getElementById("drink-calories").value;
+    }
+
+    if (itemName && itemPrice && itemImage) {
+        const newItem = document.createElement("div");
+        newItem.classList.add("menu-item");
+        newItem.innerHTML = `
+        <div>
+            <img class="menu-img" src="${itemImage}">
+        </div>
+        <div>
+            <h4>${itemName} - $${parseFloat(itemPrice).toFixed(2)}</h4>
+            <p>${itemInfo}</p>
+            <p>Calories: ${itemCalories}</p>
+            <button class="menu-btn" onclick="addToCart('${itemName}', ${itemPrice}, '${itemImage}')">Add to Cart</button>
+           <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+        `;
+        
+        if (type === 'main') {
+            document.getElementById("main-dishes").appendChild(newItem);
+        } else if (type === 'dessert') {
+            document.getElementById("desserts").appendChild(newItem);
+        } else if (type === 'drink') {
+            document.getElementById("drinks").appendChild(newItem);
+        }
+
+        clearManagerInputs(type);
+        saveMenu(); // Save to localStorage
+    } else {
+        alert("Please fill out all fields to add a new item.");
+    }
+}
+
+
+
+
+
+
+function clearManagerInputs(type) {
+    if (type === 'main') {
+        document.getElementById("main-name").value = "";
+        document.getElementById("main-info").vlaue = "";
+        document.getElementById("main-calories").value = "";
+        document.getElementById("main-price").value = "";
+        document.getElementById("main-image").value = "";
+
+    } else if (type === 'dessert'){
+        document.getElementById("dessert-name").value = "";
+        document.getElementById("dessert-info").value = "";
+        document.getElementById("dessert-calories").value = "";
+        document.getElementById("dessert-price").value = "";
+        document.getElementById("dessert-image").value = "";
+
+    } else if (type === 'drink'){
+        document.getElementById("drink-name").value = "";
+        document.getElementById("drink-info").value = "";
+        document.getElementById("drink-calories").value = "";
+        document.getElementById("drink-price").value = "";
+        document.getElementById("drink-image").value = "";
+    }
 }
 let cart = []; 
 
-function addToCart(itemName, itemPrice, itemImage) {
-    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage);
-    const item = { name: itemName, price: itemPrice, image: itemImage };
+function addToCart(itemName, itemPrice, itemImage, itemInfo, itemCalories) {
+    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage, "Info:", itemInfo, "Calories:", itemCalories);
+    const item = { name: itemName, price: itemPrice, image: itemImage, info: itemInfo, calories: itemCalories };
     cart.push(item);
     updateCartDisplay();
 }
 
 function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartDisplay();
+    console.log(`Removing item at index: ${index}`); 
+    cart.splice(index, 1); 
+    updateCartDisplay(); 
 }
-
-
-
 
 function updateCartDisplay() {
     const cartItemsList = document.getElementById("cart-items");
@@ -56,20 +175,23 @@ function updateCartDisplay() {
         const img = document.createElement("img");
         img.src = item.image || "";
         img.alt = item.name;
-        img.classList.add("cart-item-img")
+        img.classList.add("cart-item-img");
 
-        const itemName = document.createElement("span")
+        const itemName = document.createElement("span");
         itemName.textContent = item.name;
-        itemName.classList.add("cart-item-name")
+        itemName.classList.add("cart-item-name");
 
         const itemPrice = document.createElement("span");
-        itemPrice.textContent= ` - $${item.price.toFixed(2)}`;
+        itemPrice.textContent = ` - $${item.price.toFixed(2)}`;
         itemPrice.classList.add("cart-item-price");
 
-        const removeButton = document.createElement("button")
+        const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-button");
-        removeButton.onclick = () => removeFromCart(index);
+        removeButton.onclick = function() {
+            console.log(`Remove button clicked for index: ${index}`);
+            removeFromCart(index);
+        }
 
         listItem.appendChild(img);
         listItem.appendChild(itemName);
@@ -104,6 +226,48 @@ function checkout() {
     alert("Thank you for your purchase!");
 
     window.location.href = "checkout.html";
+
+
+}
+
+
+/* saves any changes to the menu */
+function saveMenu() {
+    const mainDishes = document.getElementById("main-dishes").innerHTML;
+    const desserts = document.getElementById("desserts").innerHTML;
+    const drinks = document.getElementById("drinks").innerHTML;
+
+    localStorage.setItem("mainDishes", mainDishes);
+    localStorage.setItem("desserts", desserts);
+    localStorage.setItem("drinks", drinks);
+}
+
+function loadMenu() {
+    if (localStorage.getItem("mainDishes")) {
+        document.getElementById("main-dishes").innerHTML = localStorage.getItem("mainDishes");
+    }
+
+    if (localStorage.getItem("desserts")) {
+        document.getElementById("desserts").innerHTML = localStorage.getItem("desserts");
+    }
+
+    if (localStorage.getItem("drinks")) {
+        document.getElementById("drinks").innerHTML = localStorage.getItem("drinks");
+    }
+}
+
+
+function applyStyles() {
+    if (localStorage.getItem("userPage") === "true") {
+        document.body.classList.add("hide-remove-buttons")
+    } else {
+        document.body.classList.remove("hide-remove-buttons");
+    }
+}
+
+window.onload = function() {
+    applyStyles();
+    loadMenu();
 }
 
 /* reviews javascript */
@@ -121,22 +285,89 @@ stars.forEach((star, index) => {
     });
 });
 
-document.getElementById("review").addEventListener("submit", function(event) {
-    event.preventDefault(); 
+function displayRewardsPoints() {
+    let email = localStorage.getItem("loggedInUserEmail");
 
-    const thoughts = document.getElementById("thoughts").value.trim();
+    if (email) {
+        let user = JSON.parse(localStorage.getItem(email));
 
-    if (selectedRating > 0 && thoughts) {
-        const review = {
-            rating: selectedRating,
-            thoughts: thoughts
-        };
-
-        localStorage.setItem("customerReview", JSON.stringify(review));
-
-        alert("Thank you for your feedback!");
-        location.reload();
+        if (user) {
+            document.getElementById("rewards-points").textContent = user.rewardsPoints;
+        } else {
+            document.getElementById("rewards-points").textContent = "0";
+        }
     } else {
-        alert("Please provide both a rating and your thoughts.");
+        document.getElementById("rewards-points").textContent = "0";
     }
+}
+
+window.onload = displayRewardsPoints;
+
+
+function calculateTime(orders) {
+    let total_time = 0;
+    let first_item = true;
+
+
+orders.forEach(order => {
+    if(first_item) {
+        total += 15;
+        first_item = false;
+    
+}  else if(order === "drink") {
+    total_time += 1;
+} else if(order === "dessert") {
+    total_time += 5;
+} else {
+    total_time += 5;
+}
+
 });
+
+return total_time;
+}
+
+function displayOrderSummary() { 
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+const orderSummaryElement = document.getElementById("order-summary"); 
+
+const totalAmountElement = document.getElementById("total-amount"); 
+
+let total = localStorage.getItem("totalAmount");
+
+cart.forEach(item => { 
+const listItem = document.createElement("li");
+
+ listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+  orderSummaryElement.appendChild(listItem); }); 
+  
+  totalAmountElement.textContent = total; }
+
+
+let countdownTime = 15 * 60; 
+
+function startCountdown() {
+    const countdownElement = document.getElementById("countdown");
+
+    const interval = setInterval(() => {
+        const minutes = Math.floor(countdownTime / 60);
+        const seconds = countdownTime % 60;
+
+        countdownElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+        if (countdownTime <= 0) {
+            clearInterval(interval);
+            countdownElement.textContent = "Your order has arrived!";
+        }
+
+        countdownTime--;
+    }, 1000);
+}
+
+window.onload = function() {
+    displayOrderSummary();
+    startCountdown();
+};

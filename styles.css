@@ -33,7 +33,7 @@ main h1 {
     cursor: pointer;
 }
 
-#menu {
+.menu {
     display: grid;
     grid-template-columns: 50% 50%;
     box-sizing: border-box;
@@ -89,8 +89,9 @@ h4 {
 .cart-item-img {
     width: 80px;
     border-radius: 15px;
-    height: auto;
+    height: 80px;
     margin-right: 10px;
+    margin-left: 10px;
     vertical-align: middle;
 }
 
@@ -119,7 +120,7 @@ h4 {
 
 .menu-img {
     width: 150px;
-    height: auto;
+    height: 150px;
     border-radius: 10px;
 }
 
@@ -149,6 +150,7 @@ body {
     border-radius: 15px;
     width: 100px;
 }
+
 
 .menu-btn:hover {
     background-color: #cae5ff;
@@ -393,6 +395,122 @@ form {
       transform: translate3d(85px,0,0);
     }
   }
+
+  /* Login page */
+
+  .log_in {
+     background-color: #fcd5ad;
+     width: 70%;
+     max-width: 400px;
+     margin: 0 auto;
+     margin-top: 200px;
+     padding-top: 100px;
+     padding-bottom: 100px;
+     text-align: center;
+     border-radius: 15px;
+  }
+
+  .rewards {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .rewards h1, .rewards h2 {
+    margin-top: 50px;
+  }
+
+  .reward-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    margin-top: 50px;
+    gap: 25px;
+    padding-bottom: 100px;
+  }
+
+  .reward-item {
+    background-color: #fcd5ad;
+    width: 100%;
+    text-align: left;
+    border-radius: 15px;
+  }
+
+  .top {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid #2B2B2B;
+  }
+
+  .top i {
+    font-size: 4em;
+    margin-left: 10%;
+    background-color: #cae5ff;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+  }
+
+  .fa-cake-candles {
+    font-size: 1.2em;
+  }
+
+  .bottom {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .reward-item h3 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+  }
+
+  .reward-item li {
+    margin-left: 25px;
+    line-height: 1.5em;
+    font-size: 1.2em;
+  }
+
+
+  /* Manager */
+  
+.manager-btn {
+    background-color: #ed7979;
+    color: #fff9ec;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    height: 32px;
+}
+
+.add-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.addItem {
+    margin: 0 auto;
+    background-color: #fcd5ad;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.addItem h3, .addItem input,  .addItem label {
+    display: block;
+}
+
+
+  
   /*Shrinking for mobile*/
   @media (max-width: 768px) {
     .waves {
@@ -403,4 +521,8 @@ form {
       height:30vh;
     }
   
+  }
+
+  .hide-remove-buttons .manager-btn {
+    display: none;
   }

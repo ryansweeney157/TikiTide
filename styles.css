@@ -51,6 +51,7 @@ main h1 {
     margin-right: auto;
     display: flex;
     flex-direction: row;
+    transition: background-color 0.3s, color 0.3s;
 
 }
 
@@ -509,6 +510,15 @@ form {
     display: block;
 }
 
+
+.highlight {
+    background-color: #ffff99;
+}
+
+.dull {
+    background-color: #777;
+    color: #ccc;
+}
 
   
   /*Shrinking for mobile*/

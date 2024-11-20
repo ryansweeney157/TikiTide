@@ -4,12 +4,12 @@ function signup() {
 
     let user = {
         password: pass,
-        rewardsPoints: 100 // Initial rewards points
+        
     };
 
     
     localStorage.setItem(email, JSON.stringify(user));
-    
+    localStorage.setItem(rewardsPoints)
     window.location.href = "signup.html"; 
 }
 
@@ -31,7 +31,6 @@ function login() {
             let today = new Date().setHours(0,0,0,0);
 
             if(lastLoginDate < today) {
-                user.rewardsPoints += 10;
                 user.lastLogin = new Date();
                 localStorage.setItem(email, JSON.stringify(user));
             }
@@ -133,7 +132,7 @@ function addItem(type) {
 function clearManagerInputs(type) {
     if (type === 'main') {
         document.getElementById("main-name").value = "";
-        document.getElementById("main-info").vlaue = "";
+        document.getElementById("main-info").value = "";
         document.getElementById("main-calories").value = "";
         document.getElementById("main-price").value = "";
         document.getElementById("main-image").value = "";
@@ -155,9 +154,9 @@ function clearManagerInputs(type) {
 }
 let cart = []; 
 
-function addToCart(itemName, itemPrice, itemImage, itemInfo, itemCalories) {
-    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage, "Info:", itemInfo, "Calories:", itemCalories);
-    const item = { name: itemName, price: itemPrice, image: itemImage, info: itemInfo, calories: itemCalories };
+function addToCart(itemName, itemPrice, itemImage, itemInfo, itemCalories, itemType ) {
+    console.log("Name:", itemName, "Price:", itemPrice, "Image URL:", itemImage, "Info:", itemInfo, "Calories:", itemCalories, "Type", itemType );
+    const item = { name: itemName, price: itemPrice, image: itemImage, info: itemInfo, calories: itemCalories, type: itemType };
     cart.push(item);
     updateCartDisplay();
 }
@@ -227,17 +226,16 @@ function checkout() {
     if (loggedInUserEmail) {
         let user = JSON.parse(localStorage.getItem(loggedInUserEmail));
         if (user) {
-            let points = 0;
+            let rewardsPoints = 0;
 
             cart.forEach(item => {
-                if(item.info === 'main') {
-                    points += 100;
-                } else if (item.info === 'dessert') {
-                    points += 50;
+                if(item.type === 'main') {
+                    rewardsPoints += 100;
+                } else if (item.type === 'dessert') {
+                    rewardsPoints += 50;
                 }
             });
 
-            user.rewardsPoints += points;
             localStorage.setItem(loggedInUserEmail, JSON.stringify(user));
         }
     }
@@ -310,23 +308,6 @@ stars.forEach((star, index) => {
     });
 });
 
-function displayRewardsPoints() {
-    let email = localStorage.getItem("loggedInUserEmail");
-
-    if (email) {
-        let user = JSON.parse(localStorage.getItem(email));
-
-        if (user) {
-            document.getElementById("rewards-points").textContent = user.rewardsPoints;
-        } else {
-            document.getElementById("rewards-points").textContent = "0";
-        }
-    } else {
-        document.getElementById("rewards-points").textContent = "0";
-    }
-}
-
-window.onload = displayRewardsPoints;
 
 
 function calculateTime(orders) {
@@ -355,6 +336,9 @@ function displayOrderSummary() {
     const orderSummaryElement = document.getElementById("order-summary"); 
     const totalAmountElement = document.getElementById("total-amount"); 
     let total = localStorage.getItem("totalAmount");
+
+    console.log("Cart items:", cart);
+    console.log
 
     cart.forEach(item => { 
         const listItem = document.createElement("li");
@@ -395,3 +379,40 @@ window.onload = function() {
     displayOrderSummary();
     startCountdown();
 };
+
+function updateMenuDisplay() {
+    const checkboxes = document.querySelectorAll('.dietary-checkbox:checked');
+    const selectedOptions = Array.from(checkboxes).map(checkbox => checkbox.value);
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    if(selectedOptions.length === 0) {
+        menuItems.forEach(item => {
+            item.classList.remove('highlight', 'dull')
+        });
+        return;
+    }
+
+    menuItems.forEach(item => {
+        const itemClasses = Array.from(item.classList);
+        const matches = selectedOptions.every(option => itemClasses.includes(option));
+        if (matches) {
+            item.classList.add('highlight');
+            item.classList.remove('dull');
+        } else {
+            item.classList.remove('highlight');
+            item.classList.add('dull')
+        }
+    });
+
+}
+
+document.querySelectorAll('.dietary-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', updateMenuDisplay);
+});
+
+document.getElementById("clear-preferences").addEventListener("click", function() {
+    document.querySelectorAll('.dietary-checkbox').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    updateMenuDisplay();
+})

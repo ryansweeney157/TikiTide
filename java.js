@@ -307,7 +307,7 @@ window.onload = displayRewardsPoints;
 function calculateTime(orders) {
     let total_time = 15; 
     const itemCounts = {}; 
-    
+
     orders.forEach(order => {
         if (itemCounts[order]) {
             itemCounts[order]++;
@@ -318,11 +318,22 @@ function calculateTime(orders) {
 
     for (const item in itemCounts) {
         if (itemCounts[item] > 1) {
-            total_time += 5 * (itemCounts[item] - 1); 
+
+            if (isDrink(item)) {
+                total_time += 1 * (itemCounts[item] - 1); 
+            } else {
+                total_time += 5 * (itemCounts[item] - 1); 
+            }
         }
     }
 
     return total_time;
+}
+
+function isDrink(itemName) {
+
+    const drinkKeywords = ["drink", "soda", "juice", "water", "coke"]; 
+    return drinkKeywords.some(keyword => itemName.toLowerCase().includes(keyword));
 }
 
 function displayOrderSummary() { 
@@ -367,6 +378,7 @@ window.onload = function() {
     
     const totalMinutes = calculateTime(orders);
     countdownTime = totalMinutes * 60; 
+    
     displayOrderSummary();
     startCountdown();
 };

@@ -266,6 +266,9 @@ function saveMenu() {
 }
 
 function loadMenu() {
+    const mainDishes = localStorage.getItem("mainDishes");
+    const desserts = localStorage.getItem("desserts")
+    const drinks = localStorage.getItem("drinks")
     if (localStorage.getItem("mainDishes")) {
         document.getElementById("main-dishes").innerHTML = localStorage.getItem("mainDishes");
     }
@@ -279,7 +282,6 @@ function loadMenu() {
     }
 }
 
-
 function applyStyles() {
     if (localStorage.getItem("userPage") === "true") {
         document.body.classList.add("hide-remove-buttons")
@@ -288,10 +290,6 @@ function applyStyles() {
     }
 }
 
-window.onload = function() {
-    applyStyles();
-    loadMenu();
-}
 
 /* reviews javascript */
 
@@ -349,6 +347,22 @@ function displayOrderSummary() {
     totalAmountElement.textContent = total; 
 }
 
+
+window.onload = function() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    const orders = cart.map(item => item.name); 
+    
+    const totalMinutes = calculateTime(orders);
+    countdownTime = totalMinutes * 60; 
+    displayOrderSummary();
+    startCountdown();
+    applyStyles();
+    loadMenu();
+    updateMenuDisplay();
+};
+
+
 let countdownTime = 15 * 60; 
 
 function startCountdown() {
@@ -369,17 +383,6 @@ function startCountdown() {
     }, 1000);
 }
 
-window.onload = function() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
-    const orders = cart.map(item => item.name); 
-    
-    const totalMinutes = calculateTime(orders);
-    countdownTime = totalMinutes * 60; 
-    displayOrderSummary();
-    startCountdown();
-};
-
 function updateMenuDisplay() {
     const checkboxes = document.querySelectorAll('.dietary-checkbox:checked');
     const selectedOptions = Array.from(checkboxes).map(checkbox => checkbox.value);
@@ -388,6 +391,7 @@ function updateMenuDisplay() {
     if(selectedOptions.length === 0) {
         menuItems.forEach(item => {
             item.classList.remove('highlight', 'dull')
+            
         });
         return;
     }
@@ -416,3 +420,4 @@ document.getElementById("clear-preferences").addEventListener("click", function(
     });
     updateMenuDisplay();
 })
+

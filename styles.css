@@ -520,6 +520,18 @@ form {
     color: #ccc;
 }
 
+.preference-box label{
+    display: block;
+}
+
+.preference-box {
+    margin: 0 auto;
+    width: 200px;
+    background-color: #fcd5ad;
+    padding: 25px;
+    border-radius: 15px;
+}
+
   
   /*Shrinking for mobile*/
   @media (max-width: 768px) {
@@ -530,9 +542,14 @@ form {
     .content {
       height:30vh;
     }
+
+    .menu {
+        display: block;
+    }
   
   }
 
   .hide-remove-buttons .manager-btn {
     display: none;
   }
+

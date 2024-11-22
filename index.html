@@ -220,7 +220,7 @@
                 <button class="menu-btn" onclick="addToCart('Coconut Cream Crunch', 4.99, 'https://tse3.mm.bing.net/th?id=OIG4.B7_QdNBBr689.MI0NVHG&pid=ImgGn', 'dessert')">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item nut-free">
+            <div class="menu-item nut-free gluten-free">
                 <div>
                 <img class="menu-img" src="https://tse2.mm.bing.net/th?id=OIG1.7Il.C6IJn1wsFG2dSLrR&pid=ImgGn">
                 </div>
@@ -345,24 +345,17 @@
             <p>Total: $<span id="total">0.00</span></p>
             <button class="menu-btn" onclick="checkout()">Checkout</button>
         </section>
-        
-            
-
-            <script>
-            function checkout() {
-                window.location.href = "checkout.html"; 
-            }
-            </script></section>
     </main>
 
     <script src="java.js"></script>
      <script>
         localStorage.setItem("userPage", "true");
-        
+
         window.onload = function() {
-        applyStyles();
-        loadMenu();
+            applyStyles();
+            
         }
+       
     </script>
 </body>
 </html>

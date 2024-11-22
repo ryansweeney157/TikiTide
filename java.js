@@ -264,23 +264,48 @@ function saveMenu() {
     localStorage.setItem("desserts", desserts);
     localStorage.setItem("drinks", drinks);
 }
-
 function loadMenu() {
     const mainDishes = localStorage.getItem("mainDishes");
-    const desserts = localStorage.getItem("desserts")
-    const drinks = localStorage.getItem("drinks")
-    if (localStorage.getItem("mainDishes")) {
-        document.getElementById("main-dishes").innerHTML = localStorage.getItem("mainDishes");
+    const desserts = localStorage.getItem("desserts");
+    const drinks = localStorage.getItem("drinks");
+
+    console.log("Retrieved main dishes:", mainDishes);
+    console.log("Retrieved desserts:", desserts);
+    console.log("Retrieved drinks:", drinks);
+
+    if (mainDishes) {
+        const mainDishesElement = document.getElementById("main-dishes");
+        if (mainDishesElement) {
+            mainDishesElement.innerHTML = mainDishes;
+        } else {
+            console.error("Element with ID 'main-dishes' not found.");
+        }
     }
 
-    if (localStorage.getItem("desserts")) {
-        document.getElementById("desserts").innerHTML = localStorage.getItem("desserts");
+    if (desserts) {
+        const dessertsElement = document.getElementById("desserts");
+        if (dessertsElement) {
+            dessertsElement.innerHTML = desserts;
+        } else {
+            console.error("Element with ID 'desserts' not found.");
+        }
     }
 
-    if (localStorage.getItem("drinks")) {
-        document.getElementById("drinks").innerHTML = localStorage.getItem("drinks");
+    if (drinks) {
+        const drinksElement = document.getElementById("drinks");
+        if (drinksElement) {
+            drinksElement.innerHTML = drinks;
+        } else {
+            console.error("Element with ID 'drinks' not found.");
+        }
     }
 }
+
+// Call loadMenu when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    loadMenu();
+});
+
 
 function applyStyles() {
     if (localStorage.getItem("userPage") === "true") {
@@ -289,7 +314,6 @@ function applyStyles() {
         document.body.classList.remove("hide-remove-buttons");
     }
 }
-
 
 /* reviews javascript */
 
@@ -333,7 +357,7 @@ function displayOrderSummary() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const orderSummaryElement = document.getElementById("order-summary"); 
     const totalAmountElement = document.getElementById("total-amount"); 
-    let total = localStorage.getItem("totalAmount");
+    let total = 0;
 
     console.log("Cart items:", cart);
     console.log
@@ -342,26 +366,24 @@ function displayOrderSummary() {
         const listItem = document.createElement("li");
         listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
         orderSummaryElement.appendChild(listItem); 
+
+        total += item.price
     }); 
+
+   
   
     totalAmountElement.textContent = total; 
 }
 
-
+        
 window.onload = function() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
     const orders = cart.map(item => item.name); 
-    
     const totalMinutes = calculateTime(orders);
     countdownTime = totalMinutes * 60; 
     displayOrderSummary();
     startCountdown();
-    applyStyles();
-    loadMenu();
-    updateMenuDisplay();
 };
-
 
 let countdownTime = 15 * 60; 
 
@@ -382,6 +404,9 @@ function startCountdown() {
         countdownTime--;
     }, 1000);
 }
+
+
+
 
 function updateMenuDisplay() {
     const checkboxes = document.querySelectorAll('.dietary-checkbox:checked');
@@ -420,4 +445,5 @@ document.getElementById("clear-preferences").addEventListener("click", function(
     });
     updateMenuDisplay();
 })
+
 

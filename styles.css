@@ -335,6 +335,7 @@ form {
 .full-nav {
     background-color: #fcd5ad;
     top: 0;
+    padding-top: 15px;
 
 }
 
@@ -544,6 +545,15 @@ form {
     }
 
     .menu {
+        display: block;
+        
+    }
+
+    .menu p {
+        font-size: .9em;
+    }
+
+    .reward-grid {
         display: block;
     }
   

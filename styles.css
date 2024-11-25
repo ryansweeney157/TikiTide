@@ -327,7 +327,7 @@ form {
     cursor: pointer;
     font-size: 1.5em;
 }
-
+ 
 #homeLink {
     color: #F69314;
 }
@@ -531,6 +531,11 @@ form {
     background-color: #fcd5ad;
     padding: 25px;
     border-radius: 15px;
+}
+
+#cart textarea {
+    height: 100px;
+    width: 200px;
 }
 
   

@@ -222,6 +222,9 @@ function checkout() {
     localStorage.setItem("totalAmount", total.toFixed(2));
     localStorage.setItem("cart", JSON.stringify(cart))
 
+    const extraInfo = document.getElementById("extra-info").value;
+    localStorage.setItem("extraInfo", extraInfo);
+
     const loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
     if (loggedInUserEmail) {
         let user = JSON.parse(localStorage.getItem(loggedInUserEmail));
@@ -373,6 +376,10 @@ function displayOrderSummary() {
    
   
     totalAmountElement.textContent = total; 
+
+    const extraInfo = localStorage.getItem("extraInfo");
+    console.log("Extra Info retrieved:", extraInfo);
+    document.getElementById("extra-details").textContent = extraInfo || "None";
 }
 
         

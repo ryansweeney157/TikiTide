@@ -349,6 +349,71 @@
             </div>
 
         </div>
+
+
+        <h2 class="menu-head">Chef's Specials</h2>
+
+        
+        <div id="specials" class="menu">
+            
+                
+                <!-- Special Dessert -->
+                <div class="menu-item gluten-free">
+                    <div>
+                    <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG1.C7uK4nAug9Fllb4Lv_gP&pid=ImgGn">
+                    </div>
+    
+                    <div>
+                    <h4>Spicy Caribbean chicken - $13.99</h4>
+                    <p>Description: Spicy marinated chicken grilled to perfection, served with coconut rice and grilled plantains. 850 calories</p>
+                    <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99,  'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
+                    <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+        
+                <!-- Special Main Meal -->
+                <div class="menu-item gluten-free nut-free">
+                    <div>
+                    <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG3.VBgBk8QoukSuFj60UoTh&pid=ImgGn">
+                    </div>
+    
+                    <div>
+                    <h4>Pineapple upside-down cake - $4.99</h4>
+                    <p>Description: Moist and buttery cake topped with caramelized pineapple rings and cherries.</p>
+                    <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99,  'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
+                    <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+        
+                <!-- Special Drink -->
+                <div class="menu-item gluten-free nut-free">
+                    <div>
+                    <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.N1Cx8q2FGqXc6k1CTRI3&pid=ImgGn">
+                    </div>
+    
+                    <div>
+                    <h4>Pineapple mocktail - $5.99</h4>
+                    <p>Description: This refreshing mocktail combines pineapple juice, lime, and a hint of coconut water, garnished with mint.</p>
+                    <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99,  'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
+                    <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+
+                <div class="menu-item gluten-free nut-free">
+                    <div>
+                    <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG2.vR.cZ9zBqbSfEuemfRY2&pid=ImgGn">
+                    </div>
+    
+                    <div>
+                    <h4>Guava Iced Tea - $3.99</h4>
+                    <p>Desciption: Iced tea infused with guava juice, a perfect balance of sweetness and tartness.</p>
+                    <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99,  'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
+                    <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+                
+            </div>
+
           
         </section>
 
@@ -399,6 +464,22 @@
                 <label for="drink-image">Image URL:</label>
                 <input type="text" id="drink-image" placeholder="Enter the Image URL of the item you want">
                 <button class="manager-btn" onclick="addItem('drink')">Add Drink</button>
+            </div>
+
+            
+            <div class="addItem">
+                <h3>Add Special</h3>
+                <label for="special-name">Item Name:</label>
+                <input type="text" id="special-name" placeholder="Enter the name of your item">
+                <label for="special-info">Item Description: </label>
+                <input type="text"id="special-info" placeholder="Enter the description of your item">
+                <label for="special-calories">Item Calories: </label>
+                <input type="text" id="special-calories" placeholder="Enter the calories of your item">Item Calories</input>
+                <label for="special-price">Item Price:</label>
+                <input type="number" id="special-price" placeholder="Enter the price of your item">
+                <label for="special-image">Image URL:</label>
+                <input type="text" id="special-image" placeholder="Enter the Image URL of the item you want">
+                <button class="manager-btn" onclick="addItem('special')">Add special</button>
             </div>
             
         </div>

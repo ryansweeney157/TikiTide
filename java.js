@@ -92,7 +92,14 @@ function addItem(type) {
         itemImage = document.getElementById("drink-image").value;
         itemInfo = document.getElementById("drink-info").value;
         itemCalories = document.getElementById("drink-calories").value;
+    } else if (type === 'special') {
+        itemName = document.getElementById("special-name").value;
+        itemPrice = document.getElementById("special-price").value;
+        itemImage = document.getElementById("special-image").value;
+        itemInfo = document.getElementById("special-info").value;
+        itemCalories = document.getElementById("special-calories").value;
     }
+
 
     if (itemName && itemPrice && itemImage) {
         const newItem = document.createElement("div");
@@ -115,6 +122,8 @@ function addItem(type) {
             document.getElementById("desserts").appendChild(newItem);
         } else if (type === 'drink') {
             document.getElementById("drinks").appendChild(newItem);
+        } else if (type === 'special') {
+            document.getElementById("specials").appendChild(newItem);
         }
 
         clearManagerInputs(type);
@@ -150,6 +159,12 @@ function clearManagerInputs(type) {
         document.getElementById("drink-calories").value = "";
         document.getElementById("drink-price").value = "";
         document.getElementById("drink-image").value = "";
+    } else if (type === 'special'){
+        document.getElementById("special-name").value = "";
+        document.getElementById("special-info").value = "";
+        document.getElementById("special-calories").value = "";
+        document.getElementById("special-price").value = "";
+        document.getElementById("special-image").value = "";
     }
 }
 let cart = []; 

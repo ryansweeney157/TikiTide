@@ -277,19 +277,24 @@ function saveMenu() {
     const mainDishes = document.getElementById("main-dishes").innerHTML;
     const desserts = document.getElementById("desserts").innerHTML;
     const drinks = document.getElementById("drinks").innerHTML;
+    const specials = document.getElementById("specials").innerHTML;
 
     localStorage.setItem("mainDishes", mainDishes);
     localStorage.setItem("desserts", desserts);
     localStorage.setItem("drinks", drinks);
+    localStorage.setItem("specials", specials);
 }
 function loadMenu() {
     const mainDishes = localStorage.getItem("mainDishes");
     const desserts = localStorage.getItem("desserts");
     const drinks = localStorage.getItem("drinks");
+    const specials = localStorage.getItem("specials");
 
     console.log("Retrieved main dishes:", mainDishes);
     console.log("Retrieved desserts:", desserts);
     console.log("Retrieved drinks:", drinks);
+    console.log("Retrieved specials:", specials)
+    
 
     if (mainDishes) {
         const mainDishesElement = document.getElementById("main-dishes");
@@ -315,6 +320,15 @@ function loadMenu() {
             drinksElement.innerHTML = drinks;
         } else {
             console.error("Element with ID 'drinks' not found.");
+        }
+    }
+
+    if (specials) {
+        const specialsElement = document.getElementById("specials");
+        if (specialsElement) {
+            specialsElement.innerHTML = specials;
+        } else {
+            console.error("Element with ID 'specials' not found."); 
         }
     }
 }

@@ -186,7 +186,7 @@
                 </div>
 
                 <div>
-                <h4>Pineapple pizza - $14.99</h4>
+                <h4>Pineapple Pizza - $14.99</h4>
                 <p> Ham and delicious marinated pineapple on fresh made dough and sauce, with fresh mozzarella. 16 inch pizza. 2500 calories </p>
                 <button class="menu-btn" onclick="addToCart('Pineapple pizza', 14.99, 'https://tse1.mm.bing.net/th?id=OIG4.dZb4vQe8l5vH9lbS4Zl8&pid=ImgGn', 'main')">Add to Cart</button>
                 </div>
@@ -313,6 +313,7 @@
                 <div>
                 <h4>Soda & Juice</h4>
                 <div class="soda-grid">
+                </div>
                 <div>
                 <p>Small - $1.99</p>
                 <button class="menu-btn" onclick="addToCart('Small Soda/Juice', 1.99, 'https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn', 'drink')">Add to Cart</button>
@@ -328,46 +329,72 @@
                 <button class="menu-btn" onclick="addToCart('Large Soda/Juice', 3.99, 'https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn', 'drink')">Add to Cart</button>
                 </div>
                 </div>
+            </div>
+            </div>
+            
                 
-                <div class="specials-section">
-                    <h1 class="specials-title">Chef's Specials</h1>
-                    <div class="specials-container">
-                        
-                        <!-- Special Dessert -->
-                        <div class="special-item">
-                            <div>
-                                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG4.sIE7CC8g4V1rXYq7f1DM&pid=ImgGn">
-                            </div>
-                            <h4>Decadent Lava Cake - $7.99</h4>
-                            <p>Description: A rich chocolate cake with a molten center, served with vanilla ice cream. 650 calories</p>
-                            <button class="menu-btn" onclick="addToCart('Decadent Lava Cake', 7.99, 'dessert', 'https://tse3.mm.bing.net/th?id=OIG4.sIE7CC8g4V1rXYq7f1DM&pid=ImgGn')">Add to Cart</button>
+                <h2>Chef's specials</h2>
+                <div id="specials" class="menu">
+            
+                
+                    <!-- Special Dessert -->
+                    <div class="menu-item gluten-free">
+                        <div>
+                        <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG1.C7uK4nAug9Fllb4Lv_gP&pid=ImgGn">
                         </div>
-                
-                        <!-- Special Main Meal -->
-                        <div class="special-item">
-                            <div>
-                                <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG2.vZjrbcdnpDIQcRlSKC0B&pid=ImgGn">
-                            </div>
-                            <h4>Smoked BBQ Ribs - $14.99</h4>
-                            <p>Description: Slow-smoked pork ribs glazed with tangy BBQ sauce. Served with coleslaw and fries. 1200 calories</p>
-                            <button class="menu-btn" onclick="addToCart('Smoked BBQ Ribs', 14.99, 'main', 'https://tse1.mm.bing.net/th?id=OIG2.vZjrbcdnpDIQcRlSKC0B&pid=ImgGn')">Add to Cart</button>
-                        </div>
-                
-                        <!-- Special Drink -->
-                        <div class="special-item">
-                            <div>
-                                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG4.RW4.M0tj13X_F5RD9GRP&pid=ImgGn">
-                            </div>
-                            <h4>Pineapple Paradise Mocktail - $4.99</h4>
-                            <p>Description: A refreshing blend of pineapple juice, coconut water, and a splash of lime. 150 calories</p>
-                            <button class="menu-btn" onclick="addToCart('Pineapple Paradise Mocktail', 4.99, 'drink', 'https://tse4.mm.bing.net/th?id=OIG4.RW4.M0tj13X_F5RD9GRP&pid=ImgGn')">Add to Cart</button>
+        
+                        <div>
+                        <h4>Spicy Caribbean Chicken - $13.99</h4>
+                        <p>Description: Spicy marinated chicken grilled to perfection, served with coconut rice and grilled plantains. 850 calories</p>
+                        <button class="menu-btn" onclick="addToCart('Spicy Caribbean Chicken', 13.99,  'https://tse3.mm.bing.net/th?id=OIG1.C7uK4nAug9Fllb4Lv_gP&pid=ImgGn', 'special')">Add to Cart</button>
+                        <button class="manager-btn" onclick="removeItem(this)">Remove</button>
                         </div>
                     </div>
-                </div>
             
-
-        </section>
-
+                    <!-- Special Main Meal -->
+                    <div class="menu-item gluten-free nut-free">
+                        <div>
+                        <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG3.VBgBk8QoukSuFj60UoTh&pid=ImgGn">
+                        </div>
+        
+                        <div>
+                        <h4>Pineapple Upside-down Cake - $4.99</h4>
+                        <p>Description: Moist and buttery cake topped with caramelized pineapple rings and cherries.</p>
+                        <button class="menu-btn" onclick="addToCart('Pineapple Upside-down Cake', 4.99,  'https://tse3.mm.bing.net/th?id=OIG3.VBgBk8QoukSuFj60UoTh&pid=ImgGn', 'special')">Add to Cart</button>
+                        <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                        </div>
+                    </div>
+            
+                    <!-- Special Drink -->
+                    <div class="menu-item gluten-free nut-free">
+                        <div>
+                        <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.N1Cx8q2FGqXc6k1CTRI3&pid=ImgGn">
+                        </div>
+        
+                        <div>
+                        <h4>Pineapple Mocktail - $5.99</h4>
+                        <p>Description: This refreshing mocktail combines pineapple juice, lime, and a hint of coconut water, garnished with mint.</p>
+                        <button class="menu-btn" onclick="addToCart('Pineapple Mocktail', 5.99,  'https://tse3.mm.bing.net/th?id=OIG2.N1Cx8q2FGqXc6k1CTRI3&pid=ImgGn', 'special')">Add to Cart</button>
+                        <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                        </div>
+                    </div>
+    
+                    <div class="menu-item gluten-free nut-free">
+                        <div>
+                        <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG2.vR.cZ9zBqbSfEuemfRY2&pid=ImgGn">
+                        </div>
+        
+                        <div>
+                        <h4>Guava Iced Tea - $3.99</h4>
+                        <p>Desciption: Iced tea infused with guava juice, a perfect balance of sweetness and tartness.</p>
+                        <button class="menu-btn" onclick="addToCart('Guava Iced Tea', 3.99,  'https://tse1.mm.bing.net/th?id=OIG2.vR.cZ9zBqbSfEuemfRY2&pid=ImgGn', 'special')">Add to Cart</button>
+                        <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                
        
 
 

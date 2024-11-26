@@ -1,17 +1,28 @@
 function signup() {
+
+    // Redirect to the signup page
+    window.location.href = "signup.html"; 
+}
+
+function register() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
 
     let user = {
         password: pass,
-        
     };
 
-    
     localStorage.setItem(email, JSON.stringify(user));
-    localStorage.setItem(rewardsPoints)
-    window.location.href = "signup.html"; 
+
+    // Redirect to the login page after successful signup
+    window.location.href = "index.html"; 
 }
+
+function redirectToLogin() {
+    // Redirect to the login page
+    window.location.href = "index.html"; 
+}
+
 
 
 function guest(){

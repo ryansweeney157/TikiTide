@@ -24,10 +24,29 @@
         </section>
        
     </main>
+    <script>
+        const totalAmount = parseFloat(localStorage.getItem("totalAmount")) || 0;
+        const splitAmount = parseFloat(localStorage.getItem("splitAmount")) || 0;
+
+        const numPayers = parseInt(localStorage.getItem("split-bill")) || 1;
+
+        document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
+        document.getElementById("split-amount").textContent = splitAmount.toFixed(2);
+        document.getElementById("num-payers").textContent = numPayers;
+
+        let orderSummary = '';
+        for (let i = 1; i <= numPayers; i++) {
+            orderSummary += `<li>Payer ${i}: $${splitAmount.toFixed(2)}</li>`;
+        }
+
+        document.getElementById("order-summary").innerHTML = orderSummary;
+    </script>
 
     <script src="java.js">
+        
     </script>
     <style> 
+    
     .body{
         font-family: 'Courier New', Courier, monospace;
         background-color: #f4f4f4;

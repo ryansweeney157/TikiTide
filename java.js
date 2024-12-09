@@ -286,6 +286,7 @@ function checkout() {
 }
 
 
+
 /* saves any changes to the menu */
 function saveMenu() {
     const mainDishes = document.getElementById("main-dishes").innerHTML;

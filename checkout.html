@@ -39,12 +39,21 @@
         function submitCheckout(event) {
             event.preventDefault();
 
+            const name = document.getElementById('name').value;
+            localStorage.setItem('customerName', name);
+
             alert("Thank you for your purchase!");
 
             window.location.href = "reciept.html";
         }
 
+        
+
         function payWithCash() {
+
+            const name = document.getElementById('name').value;
+            localStorage.setItem('customerName', name);
+            
             alert("Okay! Please come to the front desk to complete your payment.");
             window.location.href = "reciept.html";
         }

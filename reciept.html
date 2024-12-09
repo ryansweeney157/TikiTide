@@ -13,6 +13,7 @@
 <body>
     <main>
         <section id="receipt">
+            <p>Name: <span id="customer-name"></span></p>
             <h2>Order Confirmation</h2>
             <p>Thank you for your purchase!</p>
             <h3>Your Order:</h3>
@@ -26,6 +27,15 @@
     </main>
 
     <script src="java.js">
+    </script>
+    <script>
+        //Retrieve the customer's name from local storage and display
+        document.addEventListener('DOMContentLoaded', function() {
+            const customerName = localStorage.getItem('customerName')
+            if (customerName) {
+                document.getElementById('customer-name').innerText = customerName;
+            }
+        });
     </script>
     <style> 
     .body{

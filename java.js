@@ -24,6 +24,7 @@ function redirectToLogin() {
 }
 
 
+/* sends user right to menu */
 
 function guest(){
     localStorage.removeItem("loggedInUserEmail")

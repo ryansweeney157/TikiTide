@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tiki Tide</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+
+
+
+
+    <body>
+    <div class="full-nav">
+        <div class="headernav">
+            <div class="logo">
+                <img src="images/DALL·E 2024-11-05 08.27.41 - A vibrant and tropical-themed logo for a tiki-themed restaurant named 'Tiki Tide.' The logo should feature bold, retro-style fonts and incorporate tro.webp">
+            </div>
+            <div class="navbar">
+                <ul class="navigation">
+                    <li class="navItem home"><a href="index.html" class="active">Menu</a></li>
+                    <li class="navItem"><a href="review.html">Reviews</a></li>
+                    <li class="navItem"><a href="rewards.html">Rewards</a></li>
+                </ul>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(145, 188, 231, 0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(145, 188, 231, 0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(145, 188, 231, 0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(145, 188, 231, 0.1)" />
+            </g>
+            </svg>
+            </div>
+    </div>
+
+    <div class="header">
+    
+    <header>
+        <h1 style="font-family: 'tribeca'; ">Welcome to The Tiki Tide</h1>
+    </header>
+
+    </div>
+    <main>
+
+        <h1>Our Tropical Menu</h1>
+
+        <h2 class="menu-head">Main Dishes</h2>
+        
+       
+        <div id="menu">
+            <div id="main-dishes" class="menu">
+            <div class="menu-item vegan lactose-free nut-free">
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG2.j9FT4TOJSemT4jVpLagq&pid=ImgGn">
+                </div>
+                <div>
+                <h4>Volcanic Veggie Burger - $14.99</h4>
+                
+                <p>Description: A thick juicy black bean burger with vegan spicy mayo, vegan queso cheese, and a vegan brioche bun. <em>900 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Volcanic Veggie Burger', 14.99, 'https://tse4.mm.bing.net/th?id=OIG2.j9FT4TOJSemT4jVpLagq&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+           
+            <div class="menu-item nut-free">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.9v2YRPj2Vq6O6qebMNyY&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Big Boy Burger - $15.99</h4>
+                
+                <p>Description: A quarter-pound grass-fed burger, with bacon, cheddar cheese, onion, tomato, lettuce, and house burger sauce on a brioche bun. <em>1200 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Big Boy Burger', 15.99, 'https://tse3.mm.bing.net/th?id=OIG2.9v2YRPj2Vq6O6qebMNyY&pid=ImgGn', 'main', )">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+
+            </div>
+
+            <div class="menu-item gluten-free nut-free low-carb">
+                <div>
+                <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG3.L.Q_F0lfuugnU4uuh6qe&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Tangy Tuna Tacos - $16.99</h4>
+                <p>Description: Raw tuna marinated in house marinade, with cabbage, lime, and spicy mayo on a corn tortilla. <em>800 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Tangy Tuna Tacos', 16.99, 'https://tse1.mm.bing.net/th?id=OIG3.L.Q_F0lfuugnU4uuh6qe&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+                
+
+          
+            <div class="menu-item gluten-free low-carb nut-free">
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.VDKVqLovdhm0jS3T9ChE&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Sizzling Sirloin - $20.99</h4>
+                <p>Description: Perfectly seasoned, juicy, grass-fed 12 oz. sirloin. Served with garlic mashed potatoes and asparagus. <em>800 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Sizzling Sirloin', 20.99, 'https://tse4.mm.bing.net/th?id=OIG1.VDKVqLovdhm0jS3T9ChE&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+
+            </div>
+            <div class="menu-item vegan gluten-free lactose-free low-carb">
+                <div>
+                <img class="menu-img" src="https://tse2.mm.bing.net/th?id=OIG3.HfjlQfLsrbXyZ0A_D4Ck&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Zesty Zucchini Zoodles - $13.99</h4>
+                <p>Description: Tossed in a tangy garlic lemon sauce, topped with herbs and parmesan. <em>400 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Zesty Zucchini Zoodles', 13.99, 'https://tse2.mm.bing.net/th?id=OIG3.HfjlQfLsrbXyZ0A_D4Ck&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+
+            </div>
+            <div class="menu-item gluten-free nut-free">
+                <div>
+                <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG1.MGVoy9go2MrB_x8f4EFN&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Chili Cheese Chips - $12.99</h4>
+                <p>Description: Fritos with chili cheese, served the "ocky" way.<em>900 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Chili Cheese Chips', 12.99, 'https://tse1.mm.bing.net/th?id=OIG1.MGVoy9go2MrB_x8f4EFN&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG4.NV5yb6LHjKd7pWf2CR8q&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Crispy Coconut Chicken Fingers - $11.99</h4>
+                <p>Description: Golden coconut-crusted chicken fingers with sweet chili sauce.<em> 1100 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Crispy Coconut Chicken Fingers', 11.99, 'https://tse3.mm.bing.net/th?id=OIG4.NV5yb6LHjKd7pWf2CR8q&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG4.4q7DeBnC7tOGUtOjGyFo&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Tiki Tide Coconut Shrimp - $15.99</h4>
+                <p>Description: Wild-caught shrimp with a crispy coconut coating and sweet chili sauce.<em> 1100 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Tiki Tide Coconut Shrimp', 15.99, 'https://tse4.mm.bing.net/th?id=OIG4.4q7DeBnC7tOGUtOjGyFo&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item low-carb nut-free">
+                <div>
+                <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG3.3YzPohzXOt7FgXFsFM2P&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Fiery Fish Filet - $16.99</h4>
+                <p>Description: Spicy, crispy filet with cayenne and habanero, served with garlic aioli. <em>1200 calories</em></p>
+                <button class="menu-btn" onclick="addToCart('Fiery Fish Filet', 16.99, 'https://tse1.mm.bing.net/th?id=OIG3.3YzPohzXOt7FgXFsFM2P&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item">
+
+                <div>
+                <img class="menu-img nut-free" src="https://tse1.mm.bing.net/th?id=OIG4.dZb4vQe8l5vH9lbS4Zl8&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Pineapple pizza - $14.99</h4>
+                <p> Ham and delicious marinated pineapple on fresh made dough and sauce, with fresh mozzarella. 16 inch pizza. 2500 calories </p>
+                <button class="menu-btn" onclick="addToCart('Pineapple pizza', 14.99, 'https://tse1.mm.bing.net/th?id=OIG4.dZb4vQe8l5vH9lbS4Zl8&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+           </div> 
+       
+       
+            <h2 class="menu-head">Desserts</h2>
+            
+            
+            <div id="desserts" class="menu">
+            <div class="menu-item gluten-free nut-free">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Pineapple Paradise Parfait - $5.99</h4>
+                <p>Description: Vanilla yogurt, pineapple, strawberries, and granola. 300 calories</p>
+                <button class="menu-btn" onclick="addToCart('Pineapple Paradise Parfait', 5.99,  'https://tse3.mm.bing.net/th?id=OIG1.TS1dWgAFlckmdR.S6RDE&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG4.B7_QdNBBr689.MI0NVHG&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Coconut Cream Crunch - $4.99</h4>
+                <p>Description: A slice of creamy, crunchy coconut cream pie. 400 calories</p>
+                <button class="menu-btn" onclick="addToCart('Coconut Cream Crunch', 4.99,  'https://tse3.mm.bing.net/th?id=OIG4.B7_QdNBBr689.MI0NVHG&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item nut-free gluten-free">
+                <div>
+                <img class="menu-img" src="https://tse2.mm.bing.net/th?id=OIG1.7Il.C6IJn1wsFG2dSLrR&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Mango Magic Mousse - $4.99</h4>
+                <p>Description: Creamy mango mousse with tropical flavors. 450 calories</p>
+                <button class="menu-btn" onclick="addToCart('Mango Magic Mousse', 4.99,  'https://tse2.mm.bing.net/th?id=OIG1.7Il.C6IJn1wsFG2dSLrR&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item gluten-free lactose-free">
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.8iW_J1Jabucls4g2SfTW&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Banana Breeze Bites - $3.99</h4>
+                <p>Description: Delicious, frozen, sweet, dark chocolate covered banana bites. </p>
+                <button class="menu-btn" onclick="addToCart('Banana Breeze Bites', 3.99,  'https://tse4.mm.bing.net/th?id=OIG1.8iW_J1Jabucls4g2SfTW&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG2.9fOh4.ycvC8Oovts4ObY&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Tropical Tiki Tiramisu - $6.99</h4>
+                <p>Description: Tiramisu with a coconut and pineapple twist. 500 calories</p>
+                <button class="menu-btn" onclick="addToCart('Tropical Tiki Tiramisu', 6.99,  'https://tse4.mm.bing.net/th?id=OIG2.9fOh4.ycvC8Oovts4ObY&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+
+            </div>
+            <div class="menu-item gluten-free nut-free">
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG3.lnbyeKsJyuRc65A4GBcF&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Papaya Passion Pudding - $3.99</h4>
+                <p>Description: Papaya-flavored pudding. 350 calories</p>
+                <button class="menu-btn" onclick="addToCart('Papaya Passion Pudding', 3.99,  'https://tse4.mm.bing.net/th?id=OIG3.lnbyeKsJyuRc65A4GBcF&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+          </div>
+            
+            <h2 class="menu-head">Drinks</h2>
+
+            
+            <div id="drinks" class="menu">
+            <div class="menu-item vegan gluten-free lactose-free nut-free">
+
+                <div>
+                <img class="menu-img" src="https://tse4.mm.bing.net/th?id=OIG1.GYp._sCsDz5aD8jXf92p&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Mango Madness Smoothie - $4.99</h4>
+                <button class="menu-btn" onclick="addToCart('Berry Blast Smoothie', 4.99, 'https://tse4.mm.bing.net/th?id=OIG1.GYp._sCsDz5aD8jXf92p&pid=ImgGn'  )">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+            <div class="menu-item gluten-free">
+                <div>
+                <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG3.xlN1FdWbtKH.9U6b72aO&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Berry Blast Smoothie - $4.99</h4>
+                <button class="menu-btn" onclick="addToCart('Berry Blast Smoothie', 4.99, 'https://tse1.mm.bing.net/th?id=OIG3.xlN1FdWbtKH.9U6b72aO&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div>
+                <img class="menu-img" src="https://tse2.mm.bing.net/th?id=OIG3.rPwQMaD87INNKrW8PqYm&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Water - $1.00</h4>
+                <button class="menu-btn" onclick="addToCart('Water', 1.00, 'https://tse2.mm.bing.net/th?id=OIG3.rPwQMaD87INNKrW8PqYm&pid=ImgGn')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn">
+                </div>
+                
+                <div>
+                <h4>Soda & Juice</h4>
+                <div class="soda-grid">
+                <div>
+                <p>Small - $1.99</p>
+                <button class="menu-btn" onclick="addToCart('Small Soda/Juice', 1.99, 'https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn')">Add to Cart</button>
+                </div>
+
+                <div>
+                <p>Medium - $2.99</p>
+                <button class="menu-btn" onclick="addToCart('Medium Soda/Juice', 2.99, 'https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn')">Add to Cart</button>
+                </div>
+
+                <div>
+                <p>Large - $3.99</p>
+                <button class="menu-btn" onclick="addToCart('Large Soda/Juice', 3.99, 'https://tse3.mm.bing.net/th?id=OIG2.iXXD.ut7dyaBv5K1HJTY&pid=ImgGn')">Add to Cart</button>
+                </div>
+
+                </div>
+                </div>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+            </div>
+
+        </div>
+
+
+        <h2 class="menu-head">Chef's Specials</h2>
+        <div id="specials" class="menu">
+    
+        
+            <!-- Special Dessert -->
+            <div class="menu-item gluten-free">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG1.C7uK4nAug9Fllb4Lv_gP&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Spicy Caribbean Chicken - $13.99</h4>
+                <p>Description: Spicy marinated chicken grilled to perfection, served with coconut rice and grilled plantains. 850 calories</p>
+                <button class="menu-btn" onclick="addToCart('Spicy Caribbean Chicken', 13.99,  'https://tse3.mm.bing.net/th?id=OIG1.C7uK4nAug9Fllb4Lv_gP&pid=ImgGn', 'special')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+    
+            <!-- Special Main Meal -->
+            <div class="menu-item nut-free">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG3.VBgBk8QoukSuFj60UoTh&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Pineapple Upside-down Cake - $4.99</h4>
+                <p>Description: Moist and buttery cake topped with caramelized pineapple rings and cherries.</p>
+                <button class="menu-btn" onclick="addToCart('Pineapple Upside-down Cake', 4.99,  'https://tse3.mm.bing.net/th?id=OIG3.VBgBk8QoukSuFj60UoTh&pid=ImgGn', 'special')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+    
+            <!-- Special Drink -->
+            <div class="menu-item gluten-free nut-free">
+                <div>
+                <img class="menu-img" src="https://tse3.mm.bing.net/th?id=OIG2.N1Cx8q2FGqXc6k1CTRI3&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Pineapple Mocktail - $5.99</h4>
+                <p>Description: This refreshing mocktail combines pineapple juice, lime, and a hint of coconut water, garnished with mint.</p>
+                <button class="menu-btn" onclick="addToCart('Pineapple Mocktail', 5.99,  'https://tse3.mm.bing.net/th?id=OIG2.N1Cx8q2FGqXc6k1CTRI3&pid=ImgGn', 'special')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+
+            <div class="menu-item gluten-free nut-free low-carb">
+                <div>
+                <img class="menu-img" src="https://tse1.mm.bing.net/th?id=OIG2.vR.cZ9zBqbSfEuemfRY2&pid=ImgGn">
+                </div>
+
+                <div>
+                <h4>Guava Iced Tea - $3.99</h4>
+                <p>Desciption: Iced tea infused with guava juice, a perfect balance of sweetness and tartness.</p>
+                <button class="menu-btn" onclick="addToCart('Guava Iced Tea', 3.99,  'https://tse1.mm.bing.net/th?id=OIG2.vR.cZ9zBqbSfEuemfRY2&pid=ImgGn', 'special')">Add to Cart</button>
+                <button class="manager-btn" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            
+        </div>
+
+        
+          
+      
+
+        <div class="add-grid">
+            
+            <div class="addItem">
+                <h3>Add Main Dish</h3>
+                <label for="main-name">Item Name:</label>
+                <input type="text" id="main-name" placeholder="Enter the name of your item">
+                <label for="main-info">Item Description</label>
+                <input type="text" id="main-info" placeholder="Enter the description of your item">
+                <label for="main-calories">Item Calories: </label>
+                <input type="text" id="main-calories" placeholder="Enter the calories of your item">
+                <label for="main-price">Item Price:</label>
+                <input type="number" id="main-price" placeholder="Enter the price of your item">
+                <label for="main-image">Image URL:</label>
+                <input type="text" id="main-image" placeholder="Enter the Image URL of the item you want">
+                <button class="manager-btn" onclick="addItem('main')">Add Main Dish</button>
+            </div>
+            
+
+            <div class="addItem">
+                <h3>Add Dessert</h3>
+                <label for="dessert-name">Item Name:</label>
+                <input type="text" id="dessert-name" placeholder="Enter the name of your item">
+                <label for="dessert-info">Item Description: </label>
+                <input type="text" id="dessert-info" placeholder="Enter the description of your item">
+                <label for="dessert-calories">Item Calories:</label>
+                <input type="text" id="dessert-calories" placeholder="Enter the calories of your item">
+                <label for="dessert-price">Item Price:</label>
+                <input type="number" id="dessert-price" placeholder="Enter the price of your item">
+                <label for="dessert-image">Image URL:</label>
+                <input type="text" id="dessert-image" placeholder="Enter the Image URL of the item you want">
+                <button class="manager-btn" onclick="addItem('dessert')">Add Dessert</button>
+            </div>
+            
+        
+            <div class="addItem">
+                <h3>Add Drink</h3>
+                <label for="drink-name">Item Name:</label>
+                <input type="text" id="drink-name" placeholder="Enter the name of your item">
+                <label for="drink-info">Item Description: </label>
+                <input type="text"id="drink-info" placeholder="Enter the description of your item">
+                <label for="drink-calories">Item Calories: </label>
+                <input type="text" id="drink-calories" placeholder="Enter the calories of your item"></input>
+                <label for="drink-price">Item Price:</label>
+                <input type="number" id="drink-price" placeholder="Enter the price of your item">
+                <label for="drink-image">Image URL:</label>
+                <input type="text" id="drink-image" placeholder="Enter the Image URL of the item you want">
+                <button class="manager-btn" onclick="addItem('drink')">Add Drink</button>
+            </div>
+
+            
+            <div class="addItem">
+                <h3>Add Special</h3>
+                <label for="special-name">Item Name:</label>
+                <input type="text" id="special-name" placeholder="Enter the name of your item">
+                <label for="special-info">Item Description: </label>
+                <input type="text"id="special-info" placeholder="Enter the description of your item">
+                <label for="special-calories">Item Calories: </label>
+                <input type="text" id="special-calories" placeholder="Enter the calories of your item"></input>
+                <label for="special-price">Item Price:</label>
+                <input type="number" id="special-price" placeholder="Enter the price of your item">
+                <label for="special-image">Image URL:</label>
+                <input type="text" id="special-image" placeholder="Enter the Image URL of the item you want">
+                <button class="manager-btn" onclick="addItem('special')">Add special</button>
+            </div>
+            
+        </div>
+       
+      
+        <section id="cart">
+          
+            <h2>Your Cart</h2>
+
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total">0.00</span></p>
+
+            <p>Extra details?</p>
+            <textarea id="extra-info">
+                
+            </textarea>
+            <button style="display: block;" class="menu-btn" onclick="checkout()">Checkout</button>
+        </section>
+    </main>
+
+    <script src="java.js"></script>
+     <script>
+        localStorage.removeItem("userPage");
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

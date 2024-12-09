@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main>
+        <section id="receipt">
+            <p>Name: <span id="customer-name"></span></p>
+            <h2>Order Confirmation</h2>
+            <p>Thank you for your purchase!</p>
+            <h3>Your Order:</h3>
+            <ul id="order-summary"></ul>
+            <p>Total: $<span id="total-amount">0.00</span></p>
+            <p>Extra requests & details:<span id="extra-details"></span></p>
+            <p>Your food is estimated to arrive in <span id="countdown">15:00</span> minutes.</p>
+            <h3>Wanna voice your opinion? Click <a href="review.html">here!</a></h3>
+        </section>
+       
+    </main>
+
+    <script src="java.js">
+    </script>
+    <script>
+        //Retrieve the customer's name from local storage and display
+        document.addEventListener('DOMContentLoaded', function() {
+            const customerName = localStorage.getItem('customerName')
+            if (customerName) {
+                document.getElementById('customer-name').innerText = customerName;
+            }
+        });
+    </script>
+    <style> 
+    .body{
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    </style>
+</body>
+</html>

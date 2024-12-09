@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="full-nav">
+        <div class="headernav">
+            <div class="logo">
+                <img src="images/DALL·E 2024-11-05 08.27.41 - A vibrant and tropical-themed logo for a tiki-themed restaurant named 'Tiki Tide.' The logo should feature bold, retro-style fonts and incorporate tro.webp">
+            </div>
+            <div class="navbar">
+                <ul class="navigation">
+                    <li class="navItem home"><a href="menu.html" class="active">Menu</a></li>
+                    <li class="navItem"><a href="review.html">Reviews</a></li>
+                    <li class="navItem"><a href="rewards.html">Rewards</a></li>
+                </ul>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <div>
+
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(145, 188, 231, 0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(145, 188, 231, 0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(145, 188, 231, 0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(145, 188, 231, 0.1)" />
+            </g>
+            </svg>
+            </div>
+    </div>
+    <button class="logout-btn" onclick="logout()">Log out</button>
+    <main class="reviews">
+    <form id="review">
+    <div class="rating-box">
+        <header>How was your experience?</header>
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </div>
+            <br>            
+            <p><label>Any additional thoughts?</label></p>
+            <textarea id="thoughts" placeholder="Write your thoughts here..."></textarea>
+            <br>
+            <input id="rating-btn" type="submit" value="Submit">
+        </div>
+    </form>
+</main>
+
+        
+
+    <script src="java.js"></script>
+    <script src="https://kit.fontawesome.com/6ebb59b856.js" crossorigin="anonymous"></script>
+</body>
+</html>

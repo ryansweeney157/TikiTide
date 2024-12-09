@@ -27,7 +27,7 @@ function redirectToLogin() {
 
 function guest(){
     localStorage.removeItem("loggedInUserEmail")
-    window.location.href = "index.html"; 
+    window.location.href = "menu.html"; 
 }
 
 function login() {

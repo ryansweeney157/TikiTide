@@ -72,7 +72,7 @@ function managerLog() {
     let email = document.getElementById("email").value;
     let pass =  document.getElementById("pass").value;
 
-    if (email === "ryansweeney157@gmail.com" && pass === "56watermelon78") {
+    if (email === "ryansweeney157@gmail.com" && pass === "123poop123") {
         alert("Login successful!");
         window.location.href = "manager-menu.html"
     } else {
